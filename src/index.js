@@ -1,0 +1,27 @@
+import 'babel-polyfill';
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import App from './containers/App';
+import configureStore from './store/configureStore';
+import './styles/app.css';
+import registerServiceWorker from './registerServiceWorker';
+
+const store = configureStore()
+
+render(
+    <Provider store={store}>
+        <div className='app'>
+            <App/>
+        </div>
+    </Provider>, 
+    document.getElementById('root'));
+    registerServiceWorker();
+
+/*
+
+ЗАПРОС
+
+https://api.hh.ru/vacancies?text=frontend&area=113&name=Russia&area.id=Saint-Petersburg&per_page=10
+
+*/
