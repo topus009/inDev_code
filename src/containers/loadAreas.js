@@ -1,7 +1,9 @@
 export default function preload_areas() {
   return new Promise(function(resolve, reject) {
     var xhr = new XMLHttpRequest();
+    
     let areas = 'https://api.hh.ru/areas'
+
     xhr.open('GET', areas, false);
     xhr.onload = function() {
       if (this.status === 200) {

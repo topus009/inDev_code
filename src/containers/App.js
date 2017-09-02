@@ -11,7 +11,6 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeVacancy = this.changeVacancy.bind(this);
     this.changeCity = this.changeCity.bind(this);
-    // this.inputFilter = this.inputFilter.bind(this);
     this.state = {
       clicked: false
     };
@@ -26,11 +25,6 @@ class App extends Component {
     city = this.city.value
     this.props.UserActions.changeCity(city);
   }
-
-  // inputFilter(filter){
-  //   filter = this.filter.value
-  //   this.props.UserActions.inputFilter(filter);
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -69,20 +63,11 @@ class App extends Component {
               defaultValue='екатеринбург'
               onChange={this.changeCity}
             />
-            {/*<input
-              className='filter'
-              type='text'
-              placeholder='профильтруй...'
-              ref={(e) => this.filter = e}
-              defaultValue=''
-              onChange={this.inputFilter}
-            />*/}
           <button className='btn' onClick={this.handleSubmit}>НАЙТИ
           </button>
         </form>
         <VacancyList 
         list={page.list}
-        //filter={user.filter}
         />
       </div>
     )

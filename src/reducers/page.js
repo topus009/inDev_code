@@ -1,7 +1,6 @@
 import {
     GET_LIST_REQUEST, 
     GET_LIST_SUCCESS,
-    //GET_LIST_FAIL,
     GET_PRELOAD_CITY,
 } from '../constants/Page'
 
@@ -31,12 +30,6 @@ export default function page(state = initialState, action) {
                 fetching: false,
                 preload_city: null
             }
-            // case GET_LIST_FAIL:
-            // return {
-            //     ...state,
-            //     error: action.payload,
-            //     fetching: false
-            // }
         default:
             return state;
     }

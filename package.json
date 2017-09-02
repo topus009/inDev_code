@@ -1,5 +1,5 @@
 {
-  "name": "hh_react_redux",
+  "name": "indev",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -10,7 +10,7 @@
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.11"
   },
-  "homepage": "https://topus009.github.io/hh_react_redux",
+  "homepage": "https://topus009.github.io/indev",
   "devDependencies": {
     "autoprefixer": "7.1.1",
     "babel-core": "^6.25.0",

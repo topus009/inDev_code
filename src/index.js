@@ -17,11 +17,3 @@ render(
     </Provider>, 
     document.getElementById('root'));
     registerServiceWorker();
-
-/*
-
-ЗАПРОС
-
-https://api.hh.ru/vacancies?text=frontend&area=113&name=Russia&area.id=Saint-Petersburg&per_page=10
-
-*/
