@@ -1,6 +1,6 @@
 @font-face {
   font-family: Gotham_Pro;
-  src: url(./../fonts/Gotham_Pro.ttf);
+  src: url("./../ets/fonts/Gotham_Pro.ttf");
 }
 body {
   margin: 0;
@@ -205,12 +205,12 @@ body *::-webkit-scrollbar {
 .app .user form .opened_select,
 .app .page form .opened_select {
   border: none;
-  background: url(./../src/triangle_up.png) no-repeat right transparent;
+  background: url("./../ets/icons/arrow_drop_up.svg") no-repeat right transparent;
 }
 .app .user form .closed_select,
 .app .page form .closed_select {
   color: #aaa;
-  background: url(./../src/triangle_down.png) no-repeat right transparent;
+  background: url("./../ets/icons/arrow_drop_down.svg") no-repeat right transparent;
 }
 .app .user form .select .error_color:after {
   line-height: 1;

@@ -13,18 +13,18 @@ const Page = ({ list }) => {
         // rows = <tr className='undefined'><td className='first_row'>Вакансий не найдено!</td><td className='second_row'></td></tr>
       }
         return (
-          <div class="page">
-            <form action="" class="list_form">
-              <div class="search_form input_field" data-title="! Поле не заполнено">
-                <label class="" for="search">Поиск</label>
+          <div className="page">
+            <form action="" className="list_form">
+              <div className="search_form input_field" data-title="! Поле не заполнено">
+                <label className="" for="search">Поиск</label>
                 <input id="search" type="text" autocomplete="off" value="Поиск"/>
               </div>
-              <div class="sort input_field">
-                <ul class="closed_select">
+              <div className="sort input_field">
+                <ul className="closed_select">
                   <div id="sort">По возрасту</div>
-                  <li class="closed_li">По возрасту</li>
-                  <li class="closed_li">По имени</li>
-                  <li class="closed_li">По званию</li>
+                  <li className="closed_li">По возрасту</li>
+                  <li className="closed_li">По имени</li>
+                  <li className="closed_li">По званию</li>
                 </ul>
               </div>
             </form>
