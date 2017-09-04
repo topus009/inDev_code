@@ -1,12 +1,11 @@
 import {
     GET_LIST_SUCCESS,
-    EDIT
+    GET_ROLES_SUCCESS
 } from '../constants/Page'
 
 const initialState = {
     list: null,
-    selectedItem: null,
-    edit: false
+    roles: null,
 }
 
 export default function page(state = initialState, action) {
@@ -16,12 +15,11 @@ export default function page(state = initialState, action) {
                 ...state,
                 list: action.payload
             }
-        case EDIT:
+        case GET_ROLES_SUCCESS:
             return {
                 ...state,
-                selectedItem: action.payload,
-                edit: true
-            }
+                roles: action.payload
+        }
         default:
             return state;
     }

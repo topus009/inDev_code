@@ -13,29 +13,53 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.PageActions.preload_action();
+    this.props.PageActions.preload_List();
+    this.props.PageActions.preload_Roles();
   }
 
   componentWillReceiveProps(nextProps) {
 
   }
 
-  render() {
-    const { user, page, PageActions } = this.props;
-    let pageComponent;
-    let list = this.props.page.list;
+  onUserChange(key, value) {
+    this.props.UserActions.change(key, value);
+  }
 
-    if (list !== null && list !== undefined) {
-      pageComponent = <Page page={page} list={(list)} PageActions={PageActions}/>
+  render() {
+    const { user, page, UserActions, PageActions } = this.props;
+    let pageComponent,
+        userComponent;
+
+    let list = this.props.page.list;
+    let roles = this.props.page.roles;
+    let selectedItem = this.props.user.selectedItem;
+
+    if (selectedItem !== null && selectedItem !== undefined && roles !== null && roles !== undefined) {
+      userComponent = <User 
+                        user={user} 
+                        roles={roles} 
+                        UserActions={UserActions}
+                        PageActions={PageActions} 
+                        selectedItem={selectedItem}
+                        onUserChange={this.onUserChange}
+                      />
     }
-    else pageComponent = <div className='undefined'>Список не загружен!</div>;
+
+    if (list !== null && list !== undefined && roles !== null && roles !== undefined) {
+      pageComponent = <Page 
+                        page={page} 
+                        list={(list)} 
+                        roles={roles} 
+                        UserActions={UserActions} 
+                        PageActions={PageActions}
+                        selectedItem={selectedItem}
+                      />
+    } else pageComponent = <div className='undefined'>Список не загружен!</div>;
+
 
     return (
       <div>
-        <User 
-          user={user}
-          roles={roles}
-        />
+        {userComponent}
         {pageComponent}
       </div>
     )
@@ -56,17 +80,17 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
 
-let roles = 
-[{
-  "id": 1,
-  "name": "Рядовой"
-}, {
-  "id": 2,
-  "name": "Сержант"
-}, {
-  "id": 3,
-  "name": "Капитан"
-}, {
-  "id": 4,
-  "name": "Полковник"
-}]
+// let roles = 
+// [{
+//   "id": 1,
+//   "name": "Рядовой"
+// }, {
+//   "id": 2,
+//   "name": "Сержант"
+// }, {
+//   "id": 3,
+//   "name": "Капитан"
+// }, {
+//   "id": 4,
+//   "name": "Полковник"
+// }]

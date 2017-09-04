@@ -1,24 +1,30 @@
 import { 
     GET_LIST_SUCCESS,
-    EDIT
+    GET_ROLES_SUCCESS
 } from '../constants/Page'
 // import loadData from '../containers/loadData'
-import preloadData from '../containers/preloadData'
+import { preloadList, preloadRoles } from '../containers/preloadData'
 
-export function edit(item) {
+
+
+export function preload_List() {
     return (dispatch) => {
-            dispatch({
-                type: EDIT,
-                payload: item
-            });
+        preloadList().then(response => {
+                dispatch({
+                    type: GET_LIST_SUCCESS,
+                    payload: response
+                });
+        }, 
+        error => console.warn(`Rejected: ${error}`),
+        )
     }
 }
 
-export function preload_action() {
+export function preload_Roles() {
     return (dispatch) => {
-        preloadData().then(response => {
+        preloadRoles().then(response => {
                 dispatch({
-                    type: GET_LIST_SUCCESS,
+                    type: GET_ROLES_SUCCESS,
                     payload: response
                 });
         }, 

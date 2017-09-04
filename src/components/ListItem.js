@@ -1,17 +1,19 @@
 import React from 'react';
 
-const ListItem = ({ item, PageActions }) => {
+const ListItem = ({ item, UserActions, PageActions, currentRole }) => {
       return (
         <div className="item">
           <img className="avatar" src={item.image} alt=""/>
           <div className="info">
             <div className="name">{item.first_name + " " + item.last_name}</div>
             <div className="bdate">{item.birth_date}</div>
-            <div className="role">Воин</div>
+            <div className="role">{currentRole}</div>
           </div>
-          <input onClick={PageActions.edit} className="edit" type="button" value="Редактировать"/>
+          <input onClick={() => UserActions.edit(item)} className="edit" type="button" value="Редактировать"/>
         </div>
       );
   }
 
   export default ListItem
+
+

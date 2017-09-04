@@ -1,11 +1,21 @@
-export default function preloadData() {
+
+
+export function preloadList() {
+  // let data = 'http://avengers.view.indev-group.eu/test_api/staff/';
+  let url = 'http://avengers.view.indev-group.eu/test_api/staff/?query=';
+  return request(url);
+}
+
+export function preloadRoles() {
+  let url = 'http://avengers.view.indev-group.eu/test_api/posts/';
+  return request(url);
+}
+    
+function request(url) {
   return new Promise(function(resolve, reject) {
     var xhr = new XMLHttpRequest();
     
-    // let data = 'http://avengers.view.indev-group.eu/test_api/staff/'
-    let data = 'http://avengers.view.indev-group.eu/test_api/staff/?query='
-
-    xhr.open('GET', data, false);
+    xhr.open('GET', url, false);
     xhr.onload = function() {
       if (this.status === 200) {
         resolve(JSON.parse(this.response));
@@ -24,4 +34,3 @@ export default function preloadData() {
     xhr.send();
   });
 }
-      

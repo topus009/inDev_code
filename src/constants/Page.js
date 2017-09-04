@@ -1,2 +1,2 @@
 export const GET_LIST_SUCCESS = 'GET_LIST_SUCCESS'
-export const EDIT = 'EDIT'
+export const GET_ROLES_SUCCESS = 'GET_ROLES_SUCCESS'
