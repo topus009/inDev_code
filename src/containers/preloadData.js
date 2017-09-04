@@ -1,13 +1,14 @@
-export default function preload_areas() {
+export default function preloadData() {
   return new Promise(function(resolve, reject) {
     var xhr = new XMLHttpRequest();
     
-    let areas = 'https://api.hh.ru/areas'
+    // let data = 'http://avengers.view.indev-group.eu/test_api/staff/'
+    let data = 'http://avengers.view.indev-group.eu/test_api/staff/?query='
 
-    xhr.open('GET', areas, false);
+    xhr.open('GET', data, false);
     xhr.onload = function() {
       if (this.status === 200) {
-        resolve(this.response);
+        resolve(JSON.parse(this.response));
       } 
       else {
         var error = new Error(this.statusText);

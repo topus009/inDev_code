@@ -7,6 +7,7 @@ body {
   padding: 0;
   font-family: Gotham_Pro;
   background-color: darkgrey;
+  overflow-x: hidden;
 }
 body *::-webkit-scrollbar {
   width: 22px;
@@ -29,12 +30,21 @@ body *::-webkit-scrollbar {
   border-right: 7px solid white;
   border-left: 7px solid white;
 }
+.plashka {
+  width: 100vw;
+  height: 64px;
+  background-color: #607d8b;
+  margin-bottom: 16px;
+}
 /* ===================================== */
 .app .user {
   width: 656px;
   height: 600px;
   background-color: #ffffff;
   position: relative;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 .app .user .header {
   width: calc(100% - 16px);
@@ -96,7 +106,7 @@ body *::-webkit-scrollbar {
 .app .page form .input_field.typing label {
   font-size: 12px;
   top: 8px;
-  left: 0px;
+  left: 0;
 }
 .app .user form .input_field.typing input,
 .app .user form .input_field.typing textarea,
@@ -107,7 +117,7 @@ body *::-webkit-scrollbar {
 .app .page form .input_field label {
   position: absolute;
   top: 25px;
-  left: 0px;
+  left: 0;
   transition: all, 150ms;
 }
 .app .user form .bdate_form {
@@ -273,11 +283,12 @@ body *::-webkit-scrollbar {
 
 .app .page {
   width: 656px;
-  height: 680px;
   background-color: #ffffff;
   position: absolute;
   z-index: 4;
-  top: 0;
+  left: 0;
+  right: 0;
+  margin: 16px auto;
 }
 .app .page form .input_field {
   margin: 0;
@@ -288,7 +299,7 @@ body *::-webkit-scrollbar {
 }
 .app .page form .sort {
   position: absolute;
-  top: 0px;
+  top: 0;
   right: 17px;
 }
 .app .page form .input_field input,
@@ -361,17 +372,20 @@ body *::-webkit-scrollbar {
   font-size: 16px;
   margin-top: 25px;
 }
-.app .page .list .item .info .edit {
+.app .page .list .item .edit {
   color: white;
   position: absolute;
-  right: -275px;
-  bottom: -66px;
+  right: 0;
+  bottom: 16px;
   padding: 13px 20px 13px 17px;
   border: none;
   font-size: 16px;
   font-family: Gotham_Pro;
   outline: none;
   background-color: #2196f3;
+}
+.app .page .list .item .edit:hover {
+  background-color: #1e88e5;
 }
 .app .page .list .item:last-child {
   border: none;

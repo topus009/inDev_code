@@ -1,14 +1,14 @@
 import {
     GET_LIST_REQUEST, 
     GET_LIST_SUCCESS,
-    GET_PRELOAD_CITY,
+    EDIT
 } from '../constants/Page'
 
 const initialState = {
-    list: [],
+    list: null,
     fetching: false,
-    error: '',
-    preload_city: null
+    selectedItem: null,
+    edit: false
 }
 
 export default function page(state = initialState, action) {
@@ -18,17 +18,17 @@ export default function page(state = initialState, action) {
                 ...state,
                 fetching: true
             }
-            case GET_PRELOAD_CITY:
-            return {
-                ...state,
-                preload_city: action.payload
-            }
         case GET_LIST_SUCCESS:
             return {
                 ...state,
                 list: action.payload,
-                fetching: false,
-                preload_city: null
+                fetching: false
+            }
+        case EDIT:
+            return {
+                ...state,
+                selectedItem: action.payload,
+                edit: true
             }
         default:
             return state;
