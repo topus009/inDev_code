@@ -1,9 +1,8 @@
 import { 
-    GET_LIST_REQUEST, 
     GET_LIST_SUCCESS,
     EDIT
 } from '../constants/Page'
-import loadData from '../containers/loadData'
+// import loadData from '../containers/loadData'
 import preloadData from '../containers/preloadData'
 
 export function edit(item) {

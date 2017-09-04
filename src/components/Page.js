@@ -1,9 +1,9 @@
 import React from 'react';
 import ListItem from './ListItem';
 
-const Page = ({ list }) => {
+const Page = ({ list, PageActions }) => {
       let rows = list.map((item, id) => {
-        return <ListItem item={item} key={id} />
+        return <ListItem item={item} key={id} PageActions={PageActions}/>
       });
       
         return (

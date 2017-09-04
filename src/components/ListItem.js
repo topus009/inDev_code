@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListItem = ({ item }) => {
+const ListItem = ({ item, PageActions }) => {
       return (
         <div className="item">
           <img className="avatar" src={item.image} alt=""/>
@@ -9,7 +9,7 @@ const ListItem = ({ item }) => {
             <div className="bdate">{item.birth_date}</div>
             <div className="role">Воин</div>
           </div>
-          <input className="edit" type="button" value="Редактировать"/>
+          <input onClick={PageActions.edit} className="edit" type="button" value="Редактировать"/>
         </div>
       );
   }

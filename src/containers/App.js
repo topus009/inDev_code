@@ -21,12 +21,12 @@ class App extends Component {
   }
 
   render() {
-    const { user, page } = this.props;
+    const { user, page, PageActions } = this.props;
     let pageComponent;
     let list = this.props.page.list;
 
     if (list !== null && list !== undefined) {
-      pageComponent = <Page page={page} list={(list)}/>
+      pageComponent = <Page page={page} list={(list)} PageActions={PageActions}/>
     }
     else pageComponent = <div className='undefined'>Список не загружен!</div>;
 
