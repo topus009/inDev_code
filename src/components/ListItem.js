@@ -1,33 +1,18 @@
 import React from 'react';
 
 const ListItem = ({ item }) => {
-      let price = '';
-      let salary = item.salary;
-
-      if (salary !== null) {
-        if (salary.from && salary.to !== null) {
-          price = 'от ' + salary.from + ' до ' + salary.to;
-        }
-        else if (salary.from !== null) {
-          price = 'до ' + salary.from;
-        }
-        else if (salary.to !== null) {
-          price = 'от ' + salary.to;
-        }
-      }
-      else {
-        price = 'не указана';
-      }
       return (
-        <tr className='list_item'>
-          <td className='first_row'>
-            <a href={item.alternate_url}>{item.name} --> <em><b>
-            {item.area.name}</b></em></a>
-          </td>
-          <td className='second_row'>
-            {price}
-          </td>
-        </tr>
+        <div class="list">
+          <div class="item">
+            <img class="avatar" src="http://view.indev-group.eu/images/test_api/torch.jpg"/>
+            <div class="info">
+              <div class="name">Энни Леонхарт</div>
+              <div class="bdate">22 Марта, 834</div>
+              <div class="role">Воин</div>
+              <input class="edit" type="button" value="Редактировать"/>
+            </div>
+          </div>
+        </div>
       );
   }
 
