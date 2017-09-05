@@ -19,8 +19,7 @@ export default function user(state = initialState, action) {
     case CHANGE:
       return {
         ...state,
-        // vacancy: action.payload.vacancy,
-        // city: action.payload.city
+        selectedItem: {[action.key]: action.value}
       }
     default:
       return state;

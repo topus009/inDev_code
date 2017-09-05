@@ -12,14 +12,12 @@ export function edit(item) {
     }
 }
 
-export function change(vacancy, city) {
+export function change(key, value) {
     return (dispatch) => {
         dispatch({
             type: CHANGE, 
-            payload: {
-                    'vacancy': vacancy, 
-                    'city': city
-            }
+            key: key,
+            value: value
         });
     }
 }

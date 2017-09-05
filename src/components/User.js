@@ -7,54 +7,61 @@ const User = ({ user, roles, UserActions, selectedItem }) => {
   });
 
   let currentRole = roles.find(e => e.id === selectedItem.post).name;
-  
+
   return (
     <div className="user">
     <div className="header">Редактирование</div>
     <form className="edit_form">
       <img className="avatar" src={selectedItem.image} alt=""/>
 
-      <div className="lastName_form input_field" data-title="! Поле не заполнено">
-        <label className="" htmlFor="lastName">Фамилия</label>
+      <div className="last_name_form input_field" data-title="! Поле не заполнено">
+        <label className="" htmlFor="last_name">Фамилия</label>
         <input  
-        id="lastName" 
-        onChange={e => console.warn(e.target)} 
-        type="text" 
-        autoComplete="off" 
-        value={selectedItem.last_name}
+          id="last_name" 
+          onChange={e => UserActions.change(e.target.id, e.target.value)} 
+          type="text" 
+          autoComplete="off" 
+          defaultValue={selectedItem.last_name}
         />
       </div>
 
-      <div className="firstName_form input_field" data-title="! Поле не заполнено">
-        <label className="" htmlFor="firstName">Имя</label>
+      <div className="first_name_form input_field" data-title="! Поле не заполнено">
+        <label className="" htmlFor="first_name">Имя</label>
         <input 
-        id="firstName" 
-        type="text" 
-        autoComplete="off" 
-        value={selectedItem.first_name}
+          id="first_name"
+          onChange={e => UserActions.change(e.target.id, e.target.value)} 
+          type="text" 
+          autoComplete="off" 
+          defaultValue={selectedItem.first_name}
         />
       </div>
 
-      <div className="bdate_form input_field" data-title="! Поле не заполнено">
-        <label className="" htmlFor="bdate">Дата рождения</label>
+      <div className="birth_date_form input_field" data-title="! Поле не заполнено">
+        <label className="" htmlFor="birth_date">Дата рождения</label>
         <input  
-        id="bdate" 
-        type="text" 
-        autoComplete="off" 
-        value={selectedItem.birth_date}
+          id="birth_date"
+          onChange={e => UserActions.change(e.target.id, e.target.value)} 
+          type="text" 
+          autoComplete="off" 
+          defaultValue={selectedItem.birth_date}
         />
       </div>
 
       <div className="select input_field">
         <ul className="closed_select" data-title="! Поле не заполнено">
-          <div id="role">{currentRole}</div>
+          <div id="post">{currentRole}</div>
           {li}
         </ul>
       </div>
 
-      <div className="textarea_form input_field" data-title="! Поле не заполнено">
-        <label className="" htmlFor="textarea">Характеристика</label>
-        <textarea id="textarea" type="text" value={selectedItem.description}></textarea>
+      <div className="description_form input_field" data-title="! Поле не заполнено">
+        <label className="" htmlFor="description">Характеристика</label>
+        <textarea 
+          id="description"
+          onChange={e => UserActions.change(e.target.id, e.target.value)} 
+          type="text" 
+          defaultValue={selectedItem.description}>
+        </textarea>
       </div>
 
       <input className="save" type="button" value="Сохранить"/>

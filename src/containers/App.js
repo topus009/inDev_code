@@ -21,10 +21,6 @@ class App extends Component {
 
   }
 
-  onUserChange(key, value) {
-    this.props.UserActions.change(key, value);
-  }
-
   render() {
     const { user, page, UserActions, PageActions } = this.props;
     let pageComponent,
@@ -41,7 +37,6 @@ class App extends Component {
                         UserActions={UserActions}
                         PageActions={PageActions} 
                         selectedItem={selectedItem}
-                        onUserChange={this.onUserChange}
                       />
     }
 
