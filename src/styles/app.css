@@ -137,10 +137,15 @@ body *::-webkit-scrollbar {
 }
 .app .user form .description_form label {
   position: absolute;
-  top: 2px;
+  top: 16px;
   left: 16px;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 2.33;
+}
+.app .user form .description_form.typing label {
+  font-size: 12px;
+  top: 0px;
+  left: 16px;
 }
 .app .user form .save,
 .app .user form .delete {

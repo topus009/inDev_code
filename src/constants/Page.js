@@ -1,2 +1,4 @@
 export const GET_LIST_SUCCESS = 'GET_LIST_SUCCESS'
 export const GET_ROLES_SUCCESS = 'GET_ROLES_SUCCESS'
+export const CHANGE_SEARCH_INPUT = 'CHANGE_SEARCH_INPUT'
+export const SAVE = 'SAVE'

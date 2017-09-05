@@ -1,6 +1,6 @@
 import React from 'react';
 
-const User = ({ user, roles, UserActions, selectedItem }) => {
+const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
   
   let li = roles.map((item, id) => {
     return <li id={item.id} className="closed_li" key={id}>{item.name}</li>
@@ -14,7 +14,8 @@ const User = ({ user, roles, UserActions, selectedItem }) => {
     <form className="edit_form">
       <img className="avatar" src={selectedItem.image} alt=""/>
 
-      <div className="last_name_form input_field" data-title="! Поле не заполнено">
+      <div 
+        className={"last_name_form input_field " + (selectedItem.last_name.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
         <label className="" htmlFor="last_name">Фамилия</label>
         <input  
           id="last_name" 
@@ -25,7 +26,7 @@ const User = ({ user, roles, UserActions, selectedItem }) => {
         />
       </div>
 
-      <div className="first_name_form input_field" data-title="! Поле не заполнено">
+      <div className={"first_name_form input_field " + (selectedItem.first_name.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
         <label className="" htmlFor="first_name">Имя</label>
         <input 
           id="first_name"
@@ -54,7 +55,7 @@ const User = ({ user, roles, UserActions, selectedItem }) => {
         </ul>
       </div>
 
-      <div className="description_form input_field" data-title="! Поле не заполнено">
+      <div className={"description_form input_field " + (selectedItem.description.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
         <label className="" htmlFor="description">Характеристика</label>
         <textarea 
           id="description"
@@ -64,7 +65,7 @@ const User = ({ user, roles, UserActions, selectedItem }) => {
         </textarea>
       </div>
 
-      <input className="save" type="button" value="Сохранить"/>
+      <input className="save" /*onClick={PageActions.save(selectedItem)}*/ type="button" value="Сохранить"/>
       <input className="delete" type="button" value="Удалить"/>
     </form>
   </div>

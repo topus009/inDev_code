@@ -1,15 +1,15 @@
 import React from 'react';
 import ListItem from './ListItem';
 
-const Page = ({ list, roles, UserActions, PageActions }) => {
+const Page = ({ page, list, roles, UserActions, PageActions }) => {
   
   let rows = list.map((item, id) => {
     let currentRole = roles.find(e => e.id === item.post).name;
     return <ListItem 
               item={item} 
               key={id} 
-              PageActions={PageActions}
               UserActions={UserActions} 
+              PageActions={PageActions}
               currentRole={currentRole}
             />
   });
@@ -18,9 +18,14 @@ const Page = ({ list, roles, UserActions, PageActions }) => {
   return (
     <div className="page">
       <form action="" className="list_form">
-        <div className="search_form input_field" data-title="! Поле не заполнено">
+        <div className={"search_form input_field " + (page.search_input.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
           <label className="" htmlFor="search">Поиск</label>
-          <input id="search" type="text" autoComplete="off" value=""/>
+          <input 
+          id="search"
+          onChange={e => PageActions.change_search_input(e.target.value)}  
+          type="text" 
+          autoComplete="off" 
+          defaultValue={page.search_input}/>
         </div>
         <div className="sort input_field">
           <ul className="closed_select">

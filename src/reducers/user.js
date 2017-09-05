@@ -19,7 +19,7 @@ export default function user(state = initialState, action) {
     case CHANGE:
     let obj = state.selectedItem;
     for (let [key] of Object.entries(obj)) {
-      if (key == action.payload[0]) {
+      if (key === action.payload[0]) {
         obj[key] = action.payload[1];
       }
     }
