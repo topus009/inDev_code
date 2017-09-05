@@ -16,8 +16,7 @@ export function change(key, value) {
     return (dispatch) => {
         dispatch({
             type: CHANGE, 
-            key: key,
-            value: value
+            payload: [key, value]
         });
     }
 }
