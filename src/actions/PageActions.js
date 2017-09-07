@@ -4,18 +4,18 @@ import {
     CHANGE_SEARCH_INPUT,
     SAVE
 } from '../constants/Page'
-// import loadData from '../containers/loadData'
 import { preloadList, preloadRoles } from '../containers/preloadData'
 
-export function preload_List() {
+export function preload_List () {
     return (dispatch) => {
         preloadList().then(response => {
 
-            // const LOCAL_STORAGE = localStorage.getItem('LOCAL_LIST') ? JSON.parse(localStorage.getItem('LOCAL_LIST')) : {}
+            const LOCAL_STORAGE = localStorage.getItem('LOCAL_LIST') ? JSON.parse(localStorage.getItem('LOCAL_LIST')) : null
 
             dispatch({
                 type: GET_LIST_SUCCESS,
-                payload: response
+                // payload: LOCAL_STORAGE !== null ? LOCAL_STORAGE : response
+                payload: response 
             });
         }, 
         error => console.warn(`Rejected: ${error}`),
@@ -23,7 +23,7 @@ export function preload_List() {
     }
 }
 
-export function preload_Roles() {
+export function preload_Roles () {
     return (dispatch) => {
         preloadRoles().then(response => {
                 dispatch({
@@ -36,7 +36,7 @@ export function preload_Roles() {
     }
 }
 
-export function change_search_input(value) {
+export function change_search_input (value) {
     return (dispatch) => {
         dispatch({
             type: CHANGE_SEARCH_INPUT,
@@ -45,7 +45,7 @@ export function change_search_input(value) {
     }
 }
 
-export function save(selectedItem) {
+export function save (selectedItem) {
     return (dispatch) => {
         dispatch({
             type: SAVE,

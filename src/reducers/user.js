@@ -1,6 +1,7 @@
 import {
   EDIT,
-  CHANGE
+  CHANGE,
+  CLOSE_EDIT
 } from '../constants/User'
 
 const initialState = {
@@ -17,15 +18,21 @@ export default function user(state = initialState, action) {
           selectedItem: action.payload
     }
     case CHANGE:
-    let obj = state.selectedItem;
-    for (let [key] of Object.entries(obj)) {
-      if (key === action.payload[0]) {
-        obj[key] = action.payload[1];
-      }
-    }
+      let obj = state.selectedItem;
+        for (let [key] of Object.entries(obj)) {
+          if (key === action.payload[0]) {
+            obj[key] = action.payload[1];
+          }
+        }
+        return {
+          ...state,
+          selectedItem: obj
+        }
+    case CLOSE_EDIT:
       return {
-        ...state,
-        selectedItem: obj
+          ...state,
+          edit: false,
+          selectedItem: null
       }
     default:
       return state;

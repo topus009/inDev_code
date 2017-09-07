@@ -65,7 +65,7 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
         </textarea>
       </div>
 
-      <input className="save" /*onClick={PageActions.save(selectedItem)}*/ type="button" value="Сохранить"/>
+      <input className="save" onClick={() => PageActions.save(selectedItem)} type="button" value="Сохранить"/>
       <input className="delete" type="button" value="Удалить"/>
     </form>
   </div>

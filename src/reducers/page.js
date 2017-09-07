@@ -31,15 +31,20 @@ export default function page(state = initialState, action) {
         case SAVE:
 
         let savedItem_id = action.payload.id;
-
+        let list_ = state.list;
+        for (let i = 0; i < list_.length; i++) {
+            if (list_[i].id = savedItem_id) {
+                list_[i] = action.payload;
+            }
+        }
         localStorage.setItem('LOCAL_LIST', JSON.stringify(state.list))
             return {
                 ...state,
-                list: state.list.map((item, id) => {
-                    return item.id === state.list.find(item => {item.id === savedItem_id}).id
-                  })
+                list: state.list_
         }
         default:
             return state;
     }
 }
+
+// , UserActions.close_edit()}

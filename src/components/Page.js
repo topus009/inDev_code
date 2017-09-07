@@ -14,7 +14,6 @@ const Page = ({ page, list, roles, UserActions, PageActions }) => {
             />
   });
 
-      
   return (
     <div className="page">
       <form action="" className="list_form">
