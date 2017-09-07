@@ -144,7 +144,7 @@ body *::-webkit-scrollbar {
 }
 .app .user form .description_form.typing label {
   font-size: 12px;
-  top: 0px;
+  top: 0;
   left: 16px;
 }
 .app .user form .save,
@@ -328,7 +328,7 @@ body *::-webkit-scrollbar {
   left: 36px;
 }
 .app .page form .input_field ul {
-  padding: 13px 0px 0 0;
+  padding: 13px 0 0 0;
   border-bottom: none;
   margin: 0 0 0 0;
 }
