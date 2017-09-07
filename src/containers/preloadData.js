@@ -2,12 +2,12 @@
 
 export function preloadList() {
   // let data = 'http://avengers.view.indev-group.eu/test_api/staff/';
-  let url = 'https://avengers.view.indev-group.eu/test_api/staff/?query=';
+  let url = 'http://avengers.view.indev-group.eu/test_api/staff/?query=';
   return request(url);
 }
 
 export function preloadRoles() {
-  let url = 'https://avengers.view.indev-group.eu/test_api/posts/';
+  let url = 'http://avengers.view.indev-group.eu/test_api/posts/';
   return request(url);
 }
     
