@@ -74,18 +74,3 @@ const mapDispatchToProps = (dispatch) => {
  }}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
-
-// let roles = 
-// [{
-//   "id": 1,
-//   "name": "Рядовой"
-// }, {
-//   "id": 2,
-//   "name": "Сержант"
-// }, {
-//   "id": 3,
-//   "name": "Капитан"
-// }, {
-//   "id": 4,
-//   "name": "Полковник"
-// }]
