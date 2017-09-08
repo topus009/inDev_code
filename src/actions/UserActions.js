@@ -1,7 +1,9 @@
 import {
     EDIT, 
     CHANGE,
-    CLOSE_EDIT
+    CLOSE_EDIT,
+    OPEN_ROLE_DROPDOWN,
+    CHOOSE_ROLE
 } from '../constants/User'
 
 export function edit (item) {
@@ -26,6 +28,23 @@ export function close_edit () {
     return (dispatch) => {
         dispatch({
             type: CLOSE_EDIT
+        });
+    }
+}
+
+export function open_dropdown () {
+    return (dispatch) => {
+        dispatch({
+            type: OPEN_ROLE_DROPDOWN
+        });
+    }
+}
+
+export function choose_role (role) {
+    return (dispatch) => {
+        dispatch({
+            type: CHOOSE_ROLE, 
+            payload: role
         });
     }
 }

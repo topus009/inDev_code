@@ -3,7 +3,12 @@ import React from 'react';
 const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
   
   let li = roles.map((item, id) => {
-    return <li id={item.id} className="closed_li" key={id}>{item.name}</li>
+    return <li 
+            id={item.id} 
+            className={user.role_dropdown.opened ? "opened_li" : "closed_li"} 
+            onClick={(e) => UserActions.choose_role(e.target.innerText)}
+            key={id}>{item.name}
+          </li>
   });
 
   let currentRole = roles.find(e => e.id === selectedItem.post).name;
@@ -22,7 +27,8 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
           onChange={e => UserActions.change(e.target.id, e.target.value)} 
           type="text" 
           autoComplete="off" 
-          defaultValue={selectedItem.last_name}
+          value={selectedItem.last_name}
+          
         />
       </div>
 
@@ -33,7 +39,8 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
           onChange={e => UserActions.change(e.target.id, e.target.value)} 
           type="text" 
           autoComplete="off" 
-          defaultValue={selectedItem.first_name}
+          value={selectedItem.first_name}
+          
         />
       </div>
 
@@ -44,13 +51,18 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
           onChange={e => UserActions.change(e.target.id, e.target.value)} 
           type="text" 
           autoComplete="off" 
-          defaultValue={selectedItem.birth_date}
+          value={selectedItem.birth_date}
         />
       </div>
 
       <div className="select input_field">
-        <ul className="closed_select" data-title="! Поле не заполнено">
-          <div id="post">{currentRole}</div>
+        <ul className={user.role_dropdown.opened ? "opened_select" : "closed_select"} data-title="! Поле не заполнено">
+          <div 
+          id="post" 
+          onClick={() => UserActions.open_dropdown()}
+          >
+          {user.role_dropdown.selectedRole !== null ? user.role_dropdown.selectedRole : currentRole}
+          </div>
           {li}
         </ul>
       </div>
@@ -61,12 +73,12 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
           id="description"
           onChange={e => UserActions.change(e.target.id, e.target.value)} 
           type="text" 
-          defaultValue={selectedItem.description}>
+          value={selectedItem.description}>
         </textarea>
       </div>
 
-      <input className="save" onClick={() => PageActions.save(selectedItem)} type="button" value="Сохранить"/>
-      <input className="delete" type="button" value="Удалить"/>
+      <input className="save" onClick={() => PageActions.save_item(selectedItem)} type="button" value="Сохранить"/>
+      <input className="delete" onClick={() => PageActions.delete_item(selectedItem)} type="button" value="Удалить"/>
     </form>
   </div>
   );

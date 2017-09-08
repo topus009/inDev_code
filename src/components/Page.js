@@ -24,14 +24,20 @@ const Page = ({ page, list, roles, UserActions, PageActions }) => {
           onChange={e => PageActions.change_search_input(e.target.value)}  
           type="text" 
           autoComplete="off" 
-          defaultValue={page.search_input}/>
+          value={page.search_input}/>
         </div>
         <div className="sort input_field">
-          <ul className="closed_select">
-            <div id="sort">По возрасту</div>
-            <li className="closed_li">По возрасту</li>
-            <li className="closed_li">По имени</li>
-            <li className="closed_li">По званию</li>
+          <ul className={page.sorting_dropdown.opened ? "opened_select" : "closed_select"}>
+            <div id="sort" onClick={() => PageActions.open_dropdown()}>12345</div>
+            <li 
+            className={page.sorting_dropdown.opened ? "opened_li" : "closed_li"}
+            >По возрасту</li>
+            <li 
+            className={page.sorting_dropdown.opened ? "opened_li" : "closed_li"}
+            >По имени</li>
+            <li 
+            className={page.sorting_dropdown.opened ? "opened_li" : "closed_li"}
+            >По званию</li>
           </ul>
         </div>
       </form>

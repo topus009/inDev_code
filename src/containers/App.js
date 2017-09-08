@@ -9,8 +9,8 @@ import * as PageActions from '../actions/PageActions';
 class App extends Component {
   constructor(props) {
     super(props);
-
-  }
+    }
+  
 
   componentDidMount() {
     this.props.PageActions.preload_List();
@@ -23,12 +23,12 @@ class App extends Component {
 
   render() {
     const { user, page, UserActions, PageActions } = this.props;
-    let pageComponent,
-        userComponent;
-
     let list = this.props.page.list;
     let roles = this.props.page.roles;
     let selectedItem = this.props.user.selectedItem;
+
+    let pageComponent,
+        userComponent;
 
     if (selectedItem !== null && selectedItem !== undefined && roles !== null && roles !== undefined) {
       userComponent = <User 

@@ -1,12 +1,18 @@
 import {
   EDIT,
   CHANGE,
-  CLOSE_EDIT
+  CLOSE_EDIT,
+  OPEN_ROLE_DROPDOWN,
+  CHOOSE_ROLE
 } from '../constants/User'
 
 const initialState = {
   edit: false,
-  selectedItem: null  
+  selectedItem: null,
+  role_dropdown: {
+    opened: false,
+    selectedRole: null
+  }  
 }
 
 export default function user(state = initialState, action) {
@@ -16,7 +22,7 @@ export default function user(state = initialState, action) {
           ...state,
           edit: true,
           selectedItem: action.payload
-    }
+      }
     case CHANGE:
       let obj = state.selectedItem;
         for (let [key] of Object.entries(obj)) {
@@ -33,6 +39,19 @@ export default function user(state = initialState, action) {
           ...state,
           edit: false,
           selectedItem: null
+      }
+    case OPEN_ROLE_DROPDOWN:
+      return {
+          ...state,
+          role_dropdown: {opened: true}
+      }
+    case CHOOSE_ROLE:
+      return {
+          ...state,
+          role_dropdown: {
+            opened: false,
+            selectedRole: action.payload
+          }
       }
     default:
       return state;
