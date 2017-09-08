@@ -51,7 +51,6 @@ class App extends Component {
                       />
     } else pageComponent = <div className='undefined'>Список не загружен!</div>;
 
-
     return (
       <div>
         {userComponent}
