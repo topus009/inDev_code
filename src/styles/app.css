@@ -129,6 +129,13 @@ body *::-webkit-scrollbar {
   position: absolute;
   top: 235px;
 }
+.app .user form .select.input_field ul {
+  width: 383px;
+}
+.app .user form .select.input_field ul #post {
+  width: 382px;
+  height: 18px;
+}
 .app .user form .description_form {
   position: relative;
   bottom: -193px;
@@ -206,13 +213,16 @@ body *::-webkit-scrollbar {
   border-bottom: 2px solid #2196f3;
 }
 /* =================== */
-.user form .select.input_field ul #post,
-.page form .select.input_field ul #sort {
+.app .user form .select.input_field ul #post,
+.app .page form .select.input_field ul #sort {
   border-bottom: 1px solid #b0bec5;
   padding-bottom: 5px;
 }
-.user form .select.input_field ul,
-.page form .select.input_field ul {
+/* .app .user form .select.input_field ul .opened_li:nth-of-type(1) {
+  margin-top: -1px;
+} */
+.app .user form .select.input_field ul,
+.app .page form .select.input_field ul {
   color: #b0bec5;
   border: none;
 }
@@ -220,12 +230,12 @@ body *::-webkit-scrollbar {
 .app .user form .opened_select,
 .app .page form .opened_select {
   border: none;
-  background: url("./../ets/icons/arrow_drop_up.svg") no-repeat right transparent;
+  /* background: url("./../ets/icons/arrow_drop_up.svg") no-repeat right transparent; */
 }
 .app .user form .closed_select,
 .app .page form .closed_select {
   color: #aaa;
-  background: url("./../ets/icons/arrow_drop_down.svg") no-repeat right transparent;
+  /* background: url("./../ets/icons/arrow_drop_down.svg") no-repeat right transparent; */
 }
 .app .user form .select .error_color:after {
   line-height: 1;
@@ -280,7 +290,33 @@ body *::-webkit-scrollbar {
 .colored_select {
   color: #48b;
 }
-
+.app .user form .opened_select:after,
+.app .user form .closed_select:after {
+  top: -2px;
+  right: 2px;
+}
+.app .page form .opened_select:after,
+.app .page form .closed_select:after {
+  top: 13px;
+  right: 25px;
+}
+.app .user form .opened_select:after,
+.app .page form .opened_select:after,
+.app .user form .closed_select:after,
+.app .page form .closed_select:after {
+  width: 18px;
+  height: 18px;
+  content: "";
+  position: absolute;
+}
+.app .user form .opened_select:after,
+.app .page form .opened_select:after {
+  background: url("./../ets/icons/arrow_drop_up.svg") no-repeat right transparent;
+}
+.app .user form .closed_select:after,
+.app .page form .closed_select:after {
+  background: url("./../ets/icons/arrow_drop_down.svg") no-repeat right transparent;
+}
 /* ============================================ */
 /* ============================================ */
 /* ============================================ */
@@ -302,10 +338,37 @@ body *::-webkit-scrollbar {
   position: absolute;
   top: 0;
 }
+.app .page form .search_form:after {
+  content: '';
+  position: absolute;
+  top: 13px;
+  left: -4px;
+  background: url("./../ets/icons/search.svg");
+  width: 23px;
+  height: 23px;
+  background-size: 23px 23px;
+}
 .app .page form .sort {
   position: absolute;
   top: 0;
   right: 17px;
+  height: 42px;
+  width: 200px;
+}
+.app .page form .sort .sort_direction {
+  position: absolute;
+  top: 8px;
+  right: -5px;
+  width: 24px;
+  height: 24px;
+}
+.app .page form .sort .sort_direction.up, 
+.app .page form .sort .sort_direction.down {
+  background: url("./../ets/icons/arrow_up.svg");
+  background-size: 24px 24px;  
+}  
+.app .page form .sort .sort_direction.down {
+  transform: rotate(180deg);
 }
 .app .page form .input_field input,
 .app .page form .input_field ul {
@@ -338,6 +401,10 @@ body *::-webkit-scrollbar {
 .app .page form .input_field ul div,
 .app .page form .input_field ul li {
   padding-left: 50px;
+}
+.app .page form .input_field ul div {
+  padding: 0 20px 0 2px;
+  text-align: center;
 }
 .app .page form .input_field ul li {
   margin-right: -1px;
@@ -381,7 +448,7 @@ body *::-webkit-scrollbar {
   color: white;
   position: absolute;
   right: 0;
-  bottom: 16px;
+  bottom: 15px;
   padding: 13px 20px 13px 17px;
   border: none;
   font-size: 16px;

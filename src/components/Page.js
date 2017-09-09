@@ -27,18 +27,22 @@ const Page = ({ page, list, roles, UserActions, PageActions }) => {
           value={page.search_input}/>
         </div>
         <div className="sort input_field">
-          <ul className={page.sorting_dropdown.opened ? "opened_select" : "closed_select"}>
-            <div id="sort" onClick={() => PageActions.open_dropdown()}>12345</div>
+          <ul className={page.dropdown_opened ? "opened_select" : "closed_select"}>
+            <div id="sort" onClick={() => PageActions.open_dropdown()}>{page.sort_by !== null ? page.sort_by : '12345'}</div>
             <li 
-            className={page.sorting_dropdown.opened ? "opened_li" : "closed_li"}
+            className={page.dropdown_opened ? "opened_li" : "closed_li"}
+            onClick={(e) => PageActions.choose_sort(e.target.innerText)}
             >По возрасту</li>
             <li 
-            className={page.sorting_dropdown.opened ? "opened_li" : "closed_li"}
+            className={page.dropdown_opened ? "opened_li" : "closed_li"}
+            onClick={(e) => PageActions.choose_sort(e.target.innerText)}
             >По имени</li>
             <li 
-            className={page.sorting_dropdown.opened ? "opened_li" : "closed_li"}
+            className={page.dropdown_opened ? "opened_li" : "closed_li"}
+            onClick={(e) => PageActions.choose_sort(e.target.innerText)}
             >По званию</li>
           </ul>
+          <div className={"sort_direction " + "down"}></div>
         </div>
       </form>
       <div className="list">

@@ -7,9 +7,9 @@ import * as UserActions from '../actions/UserActions';
 import * as PageActions from '../actions/PageActions';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    }
+  // constructor(props) {
+  //   super(props);
+  //   }
   
 
   componentDidMount() {
@@ -17,9 +17,9 @@ class App extends Component {
     this.props.PageActions.preload_Roles();
   }
 
-  componentWillReceiveProps(nextProps) {
+  // componentWillReceiveProps(nextProps) {
 
-  }
+  // }
 
   render() {
     const { user, page, UserActions, PageActions } = this.props;

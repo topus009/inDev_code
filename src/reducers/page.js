@@ -4,18 +4,17 @@ import {
     CHANGE_SEARCH_INPUT,
     SAVE,
     DELETE,
-    OPEN_SORT_DROPDOWN
+    OPEN_SORT_DROPDOWN,
+    CHOOSE_SORT
 } from '../constants/Page'
 
 const initialState = {
     list: null,
     roles: null,
     search_input: "",
-    sorting_dropdown: {
-        opened: false,
-        active: false,
-        sortBy: null
-    }
+    dropdown_opened: false,
+    sort_active: false,
+    sort_by: null
 }
 
 export default function page(state = initialState, action) {
@@ -39,7 +38,7 @@ export default function page(state = initialState, action) {
             let savedItem_id = action.payload.id;
             let list_ = state.list;
             for (let i = 0; i < list_.length; i++) {
-                if (list_[i].id == savedItem_id) {
+                if (list_[i].id === savedItem_id) {
                     list_[i] = action.payload;
                 }
             }
@@ -52,7 +51,7 @@ export default function page(state = initialState, action) {
             savedItem_id = action.payload.id;
             list_ = state.list;
             for (let i = 0; i < list_.length; i++) {
-                if (list_[i].id == savedItem_id) {
+                if (list_[i].id === savedItem_id) {
                     list_.splice(i, 1);
                 }
             }
@@ -64,7 +63,14 @@ export default function page(state = initialState, action) {
         case OPEN_SORT_DROPDOWN:
             return {
                 ...state,
-                sorting_dropdown: {opened: true}
+                dropdown_opened: true
+            }
+        case CHOOSE_SORT:
+            return {
+                ...state,
+                dropdown_opened: false,
+                sort_active: true,
+                sort_by: action.payload
             }
         default:
             return state;

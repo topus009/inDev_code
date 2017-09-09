@@ -9,10 +9,8 @@ import {
 const initialState = {
   edit: false,
   selectedItem: null,
-  role_dropdown: {
-    opened: false,
-    selectedRole: null
-  }  
+  dropdown_opened: false,
+  selectedRole: null
 }
 
 export default function user(state = initialState, action) {
@@ -43,15 +41,13 @@ export default function user(state = initialState, action) {
     case OPEN_ROLE_DROPDOWN:
       return {
           ...state,
-          role_dropdown: {opened: true}
+          dropdown_opened: true,
       }
     case CHOOSE_ROLE:
       return {
           ...state,
-          role_dropdown: {
-            opened: false,
-            selectedRole: action.payload
-          }
+          dropdown_opened: false,
+          selectedRole: action.payload
       }
     default:
       return state;

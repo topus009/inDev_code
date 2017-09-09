@@ -4,7 +4,8 @@ import {
     CHANGE_SEARCH_INPUT,
     SAVE,
     DELETE,
-    OPEN_SORT_DROPDOWN
+    OPEN_SORT_DROPDOWN,
+    CHOOSE_SORT
 } from '../constants/Page'
 import { preloadList, preloadRoles } from '../containers/preloadData'
 
@@ -65,6 +66,15 @@ export function open_dropdown () {
     return (dispatch) => {
         dispatch({
             type: OPEN_SORT_DROPDOWN
+        });
+    }
+}
+
+export function choose_sort (value) {
+    return (dispatch) => {
+        dispatch({
+            type: CHOOSE_SORT,
+            payload: value
         });
     }
 }

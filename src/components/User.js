@@ -5,8 +5,8 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
   let li = roles.map((item, id) => {
     return <li 
             id={item.id} 
-            className={user.role_dropdown.opened ? "opened_li" : "closed_li"} 
-            onClick={(e) => UserActions.choose_role(e.target.innerText)}
+            className={user.dropdown_opened ? "opened_li" : "closed_li"} 
+            onClick={(e) => UserActions.choose_role(item.name)}
             key={id}>{item.name}
           </li>
   });
@@ -18,7 +18,7 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
     <div className="header">Редактирование</div>
     <form className="edit_form">
       <img className="avatar" src={selectedItem.image} alt=""/>
-
+      {/* ====================== ФАМИЛИЯ ==================== */}
       <div 
         className={"last_name_form input_field " + (selectedItem.last_name.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
         <label className="" htmlFor="last_name">Фамилия</label>
@@ -28,10 +28,9 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
           type="text" 
           autoComplete="off" 
           value={selectedItem.last_name}
-          
         />
       </div>
-
+      {/* ====================== ИМЯ ========================= */}
       <div className={"first_name_form input_field " + (selectedItem.first_name.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
         <label className="" htmlFor="first_name">Имя</label>
         <input 
@@ -40,10 +39,9 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
           type="text" 
           autoComplete="off" 
           value={selectedItem.first_name}
-          
         />
       </div>
-
+      {/* ====================== ДЕНЬ РОЖДЕНИЯ =================== */}
       <div className="birth_date_form input_field" data-title="! Поле не заполнено">
         <label className="" htmlFor="birth_date">Дата рождения</label>
         <input  
@@ -54,19 +52,18 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
           value={selectedItem.birth_date}
         />
       </div>
-
+      {/* ====================== РОЛЬ =========================== */}
       <div className="select input_field">
-        <ul className={user.role_dropdown.opened ? "opened_select" : "closed_select"} data-title="! Поле не заполнено">
+        <ul className={user.dropdown_opened ? "opened_select" : "closed_select"} data-title="! Поле не заполнено">
           <div 
-          id="post" 
-          onClick={() => UserActions.open_dropdown()}
-          >
-          {user.role_dropdown.selectedRole !== null ? user.role_dropdown.selectedRole : currentRole}
+            id="post"
+            onClick={() => UserActions.open_dropdown()}>
+          {user.selectedRole !== null ? user.selectedRole : currentRole}
           </div>
           {li}
         </ul>
       </div>
-
+      {/* ====================== О СЕБЕ ========================= */}
       <div className={"description_form input_field " + (selectedItem.description.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
         <label className="" htmlFor="description">Характеристика</label>
         <textarea 
