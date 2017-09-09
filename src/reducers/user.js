@@ -3,8 +3,10 @@ import {
   CHANGE,
   CLOSE_EDIT,
   OPEN_ROLE_DROPDOWN,
-  CHOOSE_ROLE
+  CHOOSE_ROLE,
+  LOAD_FILE
 } from '../constants/User'
+import { load_file } from './../containers/file_hosting'
 
 const initialState = {
   edit: false,
@@ -49,6 +51,8 @@ export default function user(state = initialState, action) {
           dropdown_opened: false,
           selectedRole: action.payload
       }
+    case LOAD_FILE:
+      load_file(action.payload)
     default:
       return state;
   }

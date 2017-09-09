@@ -3,7 +3,8 @@ import {
     CHANGE,
     CLOSE_EDIT,
     OPEN_ROLE_DROPDOWN,
-    CHOOSE_ROLE
+    CHOOSE_ROLE,
+    LOAD_FILE
 } from '../constants/User'
 
 export function edit (item) {
@@ -45,6 +46,15 @@ export function choose_role (role) {
         dispatch({
             type: CHOOSE_ROLE, 
             payload: role
+        });
+    }
+}
+
+export function load_file (file) {
+    return (dispatch) => {
+        dispatch({
+            type: LOAD_FILE, 
+            payload: file
         });
     }
 }

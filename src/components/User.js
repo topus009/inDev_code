@@ -18,7 +18,14 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
     <div className="header">Редактирование</div>
     <form className="edit_form">
       <img className="avatar" src={selectedItem.image} alt=""/>
-      <div className="new_avatar"></div>
+      <label htmlFor="file" className="new_avatar"></label>
+      <input 
+        type="file" 
+        name="file" 
+        id="file" 
+        className="input_file"
+        onChange={(e) => UserActions.load_file(e.target.files)}
+      />
       {/*===============================================================================*/}
       {/*===============================================================================*/}      
       {/*===============================================================================*/}      
