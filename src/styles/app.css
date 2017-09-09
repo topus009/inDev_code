@@ -60,6 +60,22 @@ body *::-webkit-scrollbar {
   height: 280px;
   position: absolute;
 }
+.app .user .new_avatar {
+  opacity: 0;
+  position: absolute;
+  width: 224px;
+  height: 280px;
+  top: 68px;
+  left: 16px;
+  background: url(/static/media/refresh.37cb4308.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-color: rgba(128,128,128,0.7);
+}
+.app .user .new_avatar:hover {
+  visibility: visible;
+  opacity: 1;
+}  
 .app .user form,
 .app .page form {
   background-color: white;

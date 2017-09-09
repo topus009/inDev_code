@@ -28,7 +28,7 @@ const Page = ({ page, list, roles, UserActions, PageActions }) => {
         </div>
         <div className="sort input_field">
           <ul className={page.dropdown_opened ? "opened_select" : "closed_select"}>
-            <div id="sort" onClick={() => PageActions.open_dropdown()}>{page.sort_by !== null ? page.sort_by : '12345'}</div>
+            <div id="sort" onClick={() => PageActions.open_dropdown()}>{page.sort_by !== null ? page.sort_by : 'По возрасту'}</div>
             <li 
             className={page.dropdown_opened ? "opened_li" : "closed_li"}
             onClick={(e) => PageActions.choose_sort(e.target.innerText)}
@@ -42,7 +42,7 @@ const Page = ({ page, list, roles, UserActions, PageActions }) => {
             onClick={(e) => PageActions.choose_sort(e.target.innerText)}
             >По званию</li>
           </ul>
-          <div className={"sort_direction " + "down"}></div>
+          <div className={"sort_direction " + "up"}></div>
         </div>
       </form>
       <div className="list">
