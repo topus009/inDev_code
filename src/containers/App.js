@@ -23,7 +23,7 @@ class App extends Component {
 
   render() {
     const { user, page, UserActions, PageActions } = this.props;
-    let list = this.props.page.list;
+    let list = this.props.page.filtered_list.length > 0 ? this.props.page.filtered_list : this.props.page.list;
     let roles = this.props.page.roles;
     let selectedItem = this.props.user.selectedItem;
 

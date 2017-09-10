@@ -5,16 +5,20 @@ import {
     SAVE,
     DELETE,
     OPEN_SORT_DROPDOWN,
-    CHOOSE_SORT
+    CHOOSE_SORT,
+    CHOOSE_SORT_DIR
 } from '../constants/Page'
 import { sort } from './../containers/sort'
+import { filter } from './../containers/filter'
 const initialState = {
     list: null,
     roles: null,
     search_input: "",
     dropdown_opened: false,
     sort_active: false,
-    sort_by: null
+    sort_by: null,
+    sort_dir: 'up',
+    filtered_list: {}
 }
 
 export default function page(state = initialState, action) {
@@ -22,7 +26,7 @@ export default function page(state = initialState, action) {
         case GET_LIST_SUCCESS:
             return {
                 ...state,
-                list: action.payload
+                list: sort('По возрасту', action.payload)
             }
         case GET_ROLES_SUCCESS:
             return {
@@ -32,7 +36,8 @@ export default function page(state = initialState, action) {
         case CHANGE_SEARCH_INPUT:
             return {
                 ...state,
-                search_input: action.payload
+                search_input: action.payload,
+                filtered_list: filter(state.list, action.payload)
             }
         case SAVE:
             let savedItem_id = action.payload.id;
@@ -71,7 +76,15 @@ export default function page(state = initialState, action) {
                 dropdown_opened: false,
                 sort_active: true,
                 sort_by: action.payload,
+                filtered_list: state.filtered_list.length > 0 ? sort(action.payload, state.filtered_list) : {},
                 list: sort(action.payload, state.list)
+            }
+        case CHOOSE_SORT_DIR:
+            return {
+                ...state,
+                filtered_list: state.filtered_list.length > 0 ? state.filtered_list.reverse() : {},
+                list: state.list.reverse(),
+                sort_dir: action.payload === 'up' ? 'down' : 'up'
             }
         default:
             return state;

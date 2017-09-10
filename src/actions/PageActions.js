@@ -5,7 +5,8 @@ import {
     SAVE,
     DELETE,
     OPEN_SORT_DROPDOWN,
-    CHOOSE_SORT
+    CHOOSE_SORT,
+    CHOOSE_SORT_DIR
 } from '../constants/Page'
 import { preloadList, preloadRoles } from '../containers/preloadData'
 
@@ -75,6 +76,15 @@ export function choose_sort (value) {
         dispatch({
             type: CHOOSE_SORT,
             payload: value
+        });
+    }
+}
+
+export function choose_sort_dir (dir) {
+    return (dispatch) => {
+        dispatch({
+            type: CHOOSE_SORT_DIR,
+            payload: dir
         });
     }
 }

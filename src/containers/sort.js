@@ -27,16 +27,7 @@ export function sort(sortBy, list) {
     break;
   }
 
-
-
-  // list.sort(function(a, b) {
-  //     var x = a.toLowerCase(), y = b.toLowerCase();
-  //     return x < y ? -1 : x > y ? 1 : 0;
-  // });
-
-
   return list
-
 }
 
 

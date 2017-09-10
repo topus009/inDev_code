@@ -57,17 +57,15 @@ export default function user(state = initialState, action) {
       }
     case LOAD_FILE:
       let FR = new FileReader();
-      let random_name = 'image_' + action.payload[1].name.slice(0,-4);
+      let random_name = 'image_to_base64';
       let file = action.payload[1];
       let base64;
-
       FR.readAsDataURL(file);
+      base64 = localStorage[random_name];
+
       FR.onload = function(e) {
         localStorage.setItem(random_name, e.target.result);
       }
-
-      base64 = localStorage.getItem(random_name);
-
       return {
         ...state,
         new_image: {

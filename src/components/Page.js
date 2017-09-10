@@ -42,7 +42,10 @@ const Page = ({ page, list, roles, UserActions, PageActions }) => {
             onClick={(e) => PageActions.choose_sort(e.target.innerText)}
             >По званию</li>
           </ul>
-          <div className={"sort_direction " + "up"}></div>
+          <div 
+            className={"sort_direction " + page.sort_dir} 
+            onClick={() => PageActions.choose_sort_dir(page.sort_dir)}>
+          </div>
         </div>
       </form>
       <div className="list">
