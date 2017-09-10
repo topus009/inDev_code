@@ -7,7 +7,7 @@ import {
     OPEN_SORT_DROPDOWN,
     CHOOSE_SORT
 } from '../constants/Page'
-
+import { sort } from './../containers/sort'
 const initialState = {
     list: null,
     roles: null,
@@ -70,11 +70,10 @@ export default function page(state = initialState, action) {
                 ...state,
                 dropdown_opened: false,
                 sort_active: true,
-                sort_by: action.payload
+                sort_by: action.payload,
+                list: sort(action.payload, state.list)
             }
         default:
             return state;
     }
 }
-
-// , UserActions.close_edit()}

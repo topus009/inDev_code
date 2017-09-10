@@ -421,6 +421,7 @@ body *::-webkit-scrollbar {
   padding: 13px 0 0 0;
   border-bottom: none;
   margin: 0 0 0 0;
+  width: 90%;
 }
 .app .page form .input_field ul > :nth-child(2) {
   margin-top: 11px;

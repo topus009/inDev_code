@@ -17,25 +17,15 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
     <div className="user">
     <div className="header">Редактирование</div>
     <form className="edit_form">
-      <img className="avatar" src={selectedItem.image} alt=""/>
+      <img className="avatar" src={user.new_image.base64 || selectedItem.image} alt=""/>
       <label htmlFor="file" className="new_avatar"></label>
       <input 
         type="file" 
         name="file" 
         id="file" 
         className="input_file"
-        onChange={(e) => UserActions.load_file(e.target.files)}
+        onChange={(e) => UserActions.load_file(selectedItem.id, e.target.files[0])}
       />
-      {/*===============================================================================*/}
-      {/*===============================================================================*/}      
-      {/*===============================================================================*/}      
-      {/*===========================                          ==========================*/}      
-      {/*===========================   ТУТ БУДЕТ ИНПУТ FILE   ==========================*/}      
-      {/*===========================                          ==========================*/}      
-      {/*===============================================================================*/}      
-      {/*===============================================================================*/}      
-      {/*===============================================================================*/}  
-
       {/* ====================== ФАМИЛИЯ ==================== */}
       <div 
         className={"last_name_form input_field " + (selectedItem.last_name.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">

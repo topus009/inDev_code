@@ -6,13 +6,17 @@ import {
   CHOOSE_ROLE,
   LOAD_FILE
 } from '../constants/User'
-import { load_file } from './../containers/file_hosting'
 
 const initialState = {
   edit: false,
   selectedItem: null,
   dropdown_opened: false,
-  selectedRole: null
+  selectedRole: null,
+  new_image: {
+    id: null,
+    name: null,
+    base64: null
+  }
 }
 
 export default function user(state = initialState, action) {
@@ -52,7 +56,30 @@ export default function user(state = initialState, action) {
           selectedRole: action.payload
       }
     case LOAD_FILE:
-      load_file(action.payload)
+      let FR = new FileReader();
+      let random_name = 'image_' + action.payload[1].name.slice(0,-4);
+      let file = action.payload[1];
+      let base64;
+
+      FR.readAsDataURL(file);
+      FR.onload = function(e) {
+        localStorage.setItem(random_name, e.target.result);
+      }
+
+      base64 = localStorage.getItem(random_name);
+
+      return {
+        ...state,
+        new_image: {
+          id: action.payload[0],
+          name: random_name,
+          base64: base64
+        },
+        selectedItem: {
+          ...state.selectedItem,
+          image: base64
+        }
+      }
     default:
       return state;
   }

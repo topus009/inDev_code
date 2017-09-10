@@ -50,11 +50,11 @@ export function choose_role (role) {
     }
 }
 
-export function load_file (file) {
+export function load_file (id, file) {
     return (dispatch) => {
         dispatch({
             type: LOAD_FILE, 
-            payload: file
+            payload: [id, file]
         });
     }
 }
