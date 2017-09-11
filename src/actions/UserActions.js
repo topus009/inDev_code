@@ -4,7 +4,8 @@ import {
     CLOSE_EDIT,
     OPEN_ROLE_DROPDOWN,
     CHOOSE_ROLE,
-    LOAD_FILE
+    LOAD_FILE,
+    CHECK_ERRORS
 } from '../constants/User'
 
 export function edit (item) {
@@ -55,6 +56,15 @@ export function load_file (id, file) {
         dispatch({
             type: LOAD_FILE, 
             payload: [id, file]
+        });
+    }
+}
+
+export function check_errors (item) {
+    return (dispatch) => {
+        dispatch({
+            type: CHECK_ERRORS, 
+            payload: item
         });
     }
 }

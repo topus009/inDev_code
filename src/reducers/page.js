@@ -24,10 +24,9 @@ const initialState = {
 export default function page(state = initialState, action) {
     switch (action.type) {
         case GET_LIST_SUCCESS:
-        action.payload.forEach(item => {
-            item.birth_date = item.birth_date.slice(0, 10).replace(/[-]/g, '.');
-        });
-        console.warn(action.payload[0].birth_date)
+            action.payload.forEach(item => {
+                item.birth_date = item.birth_date.slice(0, 10).replace(/[-]/g, '.');
+            });
             return {
                 ...state,
                 list: sort('По возрасту', action.payload),
@@ -44,17 +43,32 @@ export default function page(state = initialState, action) {
                 filtered_list: filter(state.list, action.payload)
             }
         case SAVE:
-            let savedItem_id = action.payload.id;
+            let savedItem_id = action.payload[0].id;
             let list_ = state.list;
+            let item_keys = [];
+            let error = false;
+
+            for (let [key] of Object.entries(action.payload[1])) {item_keys.push([key].toString())}
+
+            for (let i = 0; i < item_keys.length; i++) {
+                if (action.payload[1][item_keys[i]].length === 0) {
+                    error = true;
+                }
+                else error = false;
+            }
+
             for (let i = 0; i < list_.length; i++) {
                 if (list_[i].id === savedItem_id) {
-                    list_[i] = action.payload;
+                    list_[i] = action.payload[0];
                 }
             }
-            localStorage.setItem('LOCAL_LIST', JSON.stringify(list_))
+
+            if (!error) {
+                localStorage.setItem('LOCAL_LIST', JSON.stringify(list_))                
+            }
             return {
                 ...state,
-                list: state.list_
+                list: (error ? state.list : list_)
             }
         case DELETE:
             savedItem_id = action.payload.id;
@@ -67,7 +81,7 @@ export default function page(state = initialState, action) {
             localStorage.setItem('LOCAL_LIST', JSON.stringify(list_))
             return {
                 ...state,
-                list: state.list_
+                list: list_
             }
         case OPEN_SORT_DROPDOWN:
             return {

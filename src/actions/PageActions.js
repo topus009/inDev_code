@@ -45,11 +45,11 @@ export function change_search_input (value) {
     }
 }
 
-export function save_item (selectedItem) {
+export function save_item (selectedItem, errors) {
     return (dispatch) => {
         dispatch({
             type: SAVE,
-            payload: selectedItem
+            payload: [selectedItem, errors]
         });
     }
 }

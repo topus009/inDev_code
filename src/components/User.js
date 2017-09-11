@@ -29,10 +29,16 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
       />
       {/* ====================== ФАМИЛИЯ ==================== */}
       <div 
-        className={"last_name_form input_field " + (selectedItem.last_name.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
+        className={"last_name_form input_field " + 
+        (selectedItem.last_name.length > 0 ? "typing" : "") + ' ' + 
+        (user.errors.last_name.length > 0 ? 'error_color' : '')
+        } 
+        data-title="! Поле не заполнено"
+        >
         <label className="" htmlFor="last_name">Фамилия</label>
         <input  
-          id="last_name" 
+          id="last_name"
+          className={user.errors.last_name.length > 0 ? 'error_color' : ''} 
           onChange={e => UserActions.change(e.target.id, e.target.value)} 
           type="text" 
           autoComplete="off" 
@@ -40,10 +46,17 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
         />
       </div>
       {/* ====================== ИМЯ ========================= */}
-      <div className={"first_name_form input_field " + (selectedItem.first_name.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
+      <div 
+      className={"first_name_form input_field " + 
+      (selectedItem.first_name.length > 0 ? "typing" : "") + ' ' + 
+      (user.errors.first_name.length > 0 ? 'error_color' : '')
+      } 
+      data-title="! Поле не заполнено"
+      >
         <label className="" htmlFor="first_name">Имя</label>
         <input 
           id="first_name"
+          className={user.errors.first_name.length > 0 ? 'error_color' : ''}
           onChange={e => UserActions.change(e.target.id, e.target.value)} 
           type="text" 
           autoComplete="off" 
@@ -51,12 +64,19 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
         />
       </div>
       {/* ====================== ДЕНЬ РОЖДЕНИЯ =================== */}
-      <div className={"birth_date_form input_field " + (selectedItem.birth_date.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
+      <div 
+      className={"birth_date_form input_field " + 
+      (selectedItem.birth_date.length > 0 ? "typing" : "") + ' ' + 
+      (user.errors.birth_date.length > 0 ? 'error_color' : '')
+      } 
+      data-title="! Поле не заполнено"
+      >
         <label className="" htmlFor="birth_date">Дата рождения</label>
         <input  
           id="birth_date"
+          className={user.errors.birth_date.length > 0 ? 'error_color' : ''}
           onChange={e => UserActions.change(e.target.id, e.target.value)} 
-          type="date"
+          type="text"
           autoComplete="off" 
           value={selectedItem.birth_date}
         />
@@ -73,18 +93,42 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
         </ul>
       </div>
       {/* ====================== О СЕБЕ ========================= */}
-      <div className={"description_form input_field " + (selectedItem.description.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
+      <div 
+      className={"description_form input_field " + 
+      (selectedItem.description.length > 0 ? "typing" : "") + ' ' + 
+      (user.errors.description.length > 0 ? 'error_color' : '')
+      } 
+      data-title="! Поле не заполнено"
+      >
         <label className="" htmlFor="description">Характеристика</label>
         <textarea 
           id="description"
+          className={user.errors.description.length > 0 ? 'error_color' : ''}
           onChange={e => UserActions.change(e.target.id, e.target.value)} 
           type="text" 
           value={selectedItem.description}>
         </textarea>
       </div>
 
-      <input className="save" onClick={() => PageActions.save_item(selectedItem)} type="button" value="Сохранить"/>
-      <input className="delete" onClick={() => PageActions.delete_item(selectedItem)} type="button" value="Удалить"/>
+      <input 
+        className="save" 
+        onClick={() => {
+          UserActions.check_errors(selectedItem); 
+          PageActions.save_item(selectedItem, user.errors);
+          UserActions.close_edit(); 
+        }} 
+        type="button" 
+        value="Сохранить"
+      />
+      <input 
+        className="delete" 
+        onClick={() => {
+          PageActions.delete_item(selectedItem);
+          UserActions.close_edit(); 
+        }} 
+        type="button" 
+        value="Удалить"
+      />
     </form>
   </div>
   );
