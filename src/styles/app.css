@@ -2,12 +2,16 @@
   font-family: Gotham_Pro;
   src: url("./../ets/fonts/Gotham_Pro.ttf");
 }
+/* html {
+  overflow-y: scroll;
+} */
 body {
   margin: 0;
   padding: 0;
   font-family: Gotham_Pro;
   background-color: darkgrey;
   overflow-x: hidden;
+  overflow-y: 
 }
 body *::-webkit-scrollbar {
   width: 22px;

@@ -7,19 +7,25 @@ import * as UserActions from '../actions/UserActions';
 import * as PageActions from '../actions/PageActions';
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   }
+  constructor(props) {
+    super(props);
+      this.state = {
+        body_width: 0
+      }
+    }
   
-
   componentDidMount() {
     this.props.PageActions.preload_List();
     this.props.PageActions.preload_Roles();
   }
 
-  // componentWillReceiveProps(nextProps) {
-
-  // }
+  componentWillReceiveProps(nextProps) {
+    // ФИКС СКРОЛЛА
+    let scroll_width = document.body.clientWidth - this.state.body_width;
+    if (scroll_width > 0) {
+      this.setState({body_width: scroll_width})
+    } else this.setState({body_width: document.body.clientWidth})
+  }
 
   render() {
     const { user, page, UserActions, PageActions } = this.props;

@@ -21,7 +21,7 @@ const Page = ({ page, list, roles, UserActions, PageActions }) => {
           <label className="" htmlFor="search">Поиск</label>
           <input 
           id="search"
-          onChange={e => PageActions.change_search_input(e.target.value)}  
+          onChange={e => PageActions.change_search_input(e.target.value)}
           type="text" 
           autoComplete="off" 
           value={page.search_input}/>
