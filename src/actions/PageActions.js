@@ -8,7 +8,7 @@ import {
     CHOOSE_SORT,
     CHOOSE_SORT_DIR
 } from '../constants/Page'
-import { preloadList, preloadRoles } from '../containers/preloadData'
+import { preloadList, preloadRoles } from '../helpers/preloadData'
 
 export function preload_List () {
     return (dispatch) => {

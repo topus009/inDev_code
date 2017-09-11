@@ -17,10 +17,11 @@ class App extends Component {
   componentDidMount() {
     this.props.PageActions.preload_List();
     this.props.PageActions.preload_Roles();
+
   }
 
   componentWillReceiveProps(nextProps) {
-    // ФИКС СКРОЛЛА
+    // ФИКС СКРОЛЛА    
     let scroll_width = document.body.clientWidth - this.state.body_width;
     if (scroll_width > 0) {
       this.setState({body_width: scroll_width})

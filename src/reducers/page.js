@@ -8,8 +8,8 @@ import {
     CHOOSE_SORT,
     CHOOSE_SORT_DIR
 } from '../constants/Page'
-import { sort } from './../containers/sort'
-import { filter } from './../containers/filter'
+import { sort } from './../helpers/sort'
+import { filter } from './../helpers/filter'
 const initialState = {
     list: null,
     roles: null,
@@ -23,10 +23,10 @@ const initialState = {
 
 export default function page(state = initialState, action) {
     switch (action.type) {
-        case GET_LIST_SUCCESS:
+        case GET_LIST_SUCCESS:        
             action.payload.forEach(item => {
                 item.birth_date = item.birth_date.slice(0, 10).replace(/[-]/g, '.');
-            });
+            });            
             return {
                 ...state,
                 list: sort('По возрасту', action.payload),
