@@ -1,4 +1,5 @@
 import React from 'react';
+// import DayPicker from 'react-day-picker';
 
 const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
   
@@ -50,12 +51,12 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
         />
       </div>
       {/* ====================== ДЕНЬ РОЖДЕНИЯ =================== */}
-      <div className="birth_date_form input_field" data-title="! Поле не заполнено">
+      <div className={"birth_date_form input_field " + (selectedItem.birth_date.length > 0 ? "typing" : "")} data-title="! Поле не заполнено">
         <label className="" htmlFor="birth_date">Дата рождения</label>
         <input  
           id="birth_date"
           onChange={e => UserActions.change(e.target.id, e.target.value)} 
-          type="text" 
+          type="date"
           autoComplete="off" 
           value={selectedItem.birth_date}
         />

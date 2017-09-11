@@ -24,9 +24,13 @@ const initialState = {
 export default function page(state = initialState, action) {
     switch (action.type) {
         case GET_LIST_SUCCESS:
+        action.payload.forEach(item => {
+            item.birth_date = item.birth_date.slice(0, 10).replace(/[-]/g, '.');
+        });
+        console.warn(action.payload[0].birth_date)
             return {
                 ...state,
-                list: sort('По возрасту', action.payload)
+                list: sort('По возрасту', action.payload),
             }
         case GET_ROLES_SUCCESS:
             return {
