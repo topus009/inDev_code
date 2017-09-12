@@ -75,18 +75,31 @@ export default function user(state = initialState, action) {
       for (let i = 0; i < error_keys.length; i++) {
         if (state.errors[error_keys[i]].length > 0) {
           not_close_if_errors = true;
-        } else not_close_if_errors = false;
-        
+        }
       }
-      // если есть ошибки - форма не закроется
+      // пэйлоад есть только когда нажимаешь на удалить
+      if (action.payload) {
+        not_close_if_errors = false
+      }
+      // если есть ошибки - форма не закроется (исключение - удаление персонажа)
       if (!not_close_if_errors) {
         return {
           ...state,
           edit: false,
           selectedItem: null,
-          dropdown_opened: false
+          dropdown_opened: false,
+          errors: {
+            first_name: '',
+            last_name: '',
+            birth_date: '',
+            description: ''
+          }
         }
-      } else return {...state}
+      } 
+      else return {
+        ...state,
+        dropdown_opened: false
+      }
     case OPEN_ROLE_DROPDOWN:
       return {
           ...state,
@@ -96,7 +109,11 @@ export default function user(state = initialState, action) {
       return {
           ...state,
           dropdown_opened: false,
-          selectedRole: action.payload
+          selectedRole: action.payload[0],
+          selectedItem: {
+            ...state.selectedItem,
+            post: action.payload[1]
+          },
       }
     case LOAD_FILE:
       // изменение АВАТАРА

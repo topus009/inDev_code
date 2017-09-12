@@ -26,19 +26,20 @@ export function check_errors (item) {
     }
 }
 
-export function choose_role (role) {
+export function choose_role (role, id) {
     return (dispatch) => {
         dispatch({
             type: CHOOSE_ROLE, 
-            payload: role
+            payload: [role, id]
         });
     }
 }
 
-export function close_edit () {
+export function close_edit (errors) {
     return (dispatch) => {
         dispatch({
-            type: CLOSE_EDIT
+            type: CLOSE_EDIT,
+            payload: errors
         });
     }
 }

@@ -6,7 +6,7 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
     return <li 
             id={item.id} 
             className={user.dropdown_opened ? "opened_li" : "closed_li"} 
-            onClick={(e) => UserActions.choose_role(e.target.innerText)}
+            onClick={(e) => UserActions.choose_role(e.target.innerText, item.id)}
             key={id}>{item.name}
           </li>
   });
@@ -120,7 +120,7 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
         className="delete" 
         onClick={() => {
           PageActions.delete_item(selectedItem);
-          UserActions.close_edit(); 
+          UserActions.close_edit(user.errors); 
         }} 
         type="button" 
         value="Удалить"

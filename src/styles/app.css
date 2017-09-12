@@ -1,3 +1,4 @@
+/* ========================= ГЛАВНОЕ ========================= */
 @font-face {
   font-family: Gotham_Pro;
   src: url("./../ets/fonts/Gotham_Pro.ttf");
@@ -36,7 +37,175 @@ body *::-webkit-scrollbar {
   background-color: #607d8b;
   margin-bottom: 16px;
 }
-/* ===================================== */
+/* ========================= CUSTOM ============================== */
+.error_color {
+  color: #bb4444 !important;
+  border-color: #bb4444 !important;
+}
+.error_color:after {
+  content: attr(data-title);
+  width: 185px;
+  height: 25px;
+  position: absolute;
+  background: #bb4444;
+  z-index: 9999;
+  top: 15px;
+  left: 393px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  color: #eeeeee;
+  padding-top: 9px;
+  padding-left: 11px;
+}
+.error_color:before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  background-color: #bb4444;
+  transform: rotate(45deg);
+  left: 385px;
+  top: 25px;
+  z-index: 4;
+}
+.colored_select {
+  color: #48b;
+}
+/* ========================= USER / PAGE ========================= */
+.app .user form,
+.app .page form {
+  background-color: white;
+  padding: 16px;
+  width: calc(100% - 32px);
+}
+.app .user form .input_field,
+.app .page form .input_field {
+  color: #b0bec5;
+  position: relative;
+  margin-left: 240px;
+}
+.app .user form .input_field input,
+.app .user form .input_field ul,
+.app .user form .input_field textarea,
+.app .page form .input_field input,
+.app .page form .input_field ul {
+  width: 384px;
+  border: none;
+  border-bottom: 1px solid #b0bec5;
+  outline: none;
+  font-size: 16px;
+  padding: 25px 0 8px 0;
+}
+.app .user form .input_field input:focus,
+.app .user form .input_field input:active,
+.app .user form .input_field textarea:focus,
+.app .user form .input_field textarea:active,
+.app .page form .input_field input:focus,
+.app .page form .input_field input:active {
+  border-bottom: 1px solid #48b;
+}
+.app .user form .input_field.typing label,
+.app .page form .input_field.typing label {
+  font-size: 12px;
+  top: 8px;
+  left: 0;
+}
+.app .user form .input_field.typing input,
+.app .user form .input_field.typing textarea,
+.app .page form .input_field.typing input {
+  color: #48b;
+}
+.app .user form .input_field label,
+.app .page form .input_field label {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  transition: all, 150ms;
+}
+.app .user form .input_field ul,
+.app .page form .input_field ul {
+  font-size: 16px;
+  position: relative;
+  z-index: 2;
+  padding: 0;
+  padding-left: 0;
+  list-style: none;
+  background-position-x: 221px;
+  padding-bottom: 6px;
+  color: #263238;
+}
+.app .user form .input_field ul li,
+.app .page form .input_field ul li {
+  margin-right: -1px;
+  padding-left: 14px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  border-right: 2px solid #2196f3;
+  border-left: 2px solid #2196f3;
+  background-color: white;
+}
+.app .user form .input_field ul > :nth-child(2),
+.app .page form .input_field ul > :nth-child(2) {
+  margin-top: -3px;
+  border-top: 2px solid #2196f3;
+}
+.app .user form .input_field ul li:last-child,
+.app .page form .input_field ul li:last-child {
+  border-bottom: 2px solid #2196f3;
+}
+.app .user form .select.input_field ul #post,
+.app .page form .select.input_field ul #sort {
+  border-bottom: 1px solid #b0bec5;
+  padding-bottom: 5px;
+}
+.app .user form .select.input_field ul,
+.app .page form .select.input_field ul {
+  color: #b0bec5;
+  border: none;
+}
+.app .user form .opened_select,
+.app .page form .opened_select {
+  border: none;
+}
+.app .user form .closed_select,
+.app .page form .closed_select {
+  color: #aaa;
+}
+.app .user form .opened_li,
+.app .page form .opened_li {
+  display: block;
+  z-index: 999999;
+}
+.app .user form .opened_li:hover,
+.app .page form .opened_li:hover {
+  background-color: #eceff1;
+}
+.app .user form .opened_li:active,
+.app .page form .opened_li:active {
+  background-color: #2196f3;
+}
+.app .user form .closed_li,
+.app .page form .closed_li {
+  display: none;
+}
+.app .user form .opened_select:after,
+.app .user form .closed_select:after,
+.app .page form .opened_select:after,
+.app .page form .closed_select:after {
+  width: 18px;
+  height: 18px;
+  content: "";
+  position: absolute;
+}
+.app .user form .opened_select:after,
+.app .page form .opened_select:after {
+  background: url("./../ets/icons/arrow_drop_up.svg") no-repeat right transparent;
+}
+.app .user form .closed_select:after,
+.app .page form .closed_select:after {
+  background: url("./../ets/icons/arrow_drop_down.svg") no-repeat right transparent;
+}
+/* ========================= USER ================================ */
 .app .user {
   width: 656px;
   height: 600px;
@@ -82,38 +251,6 @@ body *::-webkit-scrollbar {
   position: absolute;
   visibility: hidden;
 }
-.app .user form,
-.app .page form {
-  background-color: white;
-  padding: 16px;
-  width: calc(100% - 32px);
-}
-.app .user form .input_field,
-.app .page form .input_field {
-  color: #b0bec5;
-  position: relative;
-  margin-left: 240px;
-}
-.app .user form .input_field input,
-.app .user form .input_field ul,
-.app .user form .input_field textarea,
-.app .page form .input_field input,
-.app .page form .input_field ul {
-  width: 384px;
-  border: none;
-  border-bottom: 1px solid #b0bec5;
-  outline: none;
-  font-size: 16px;
-  padding: 25px 0 8px 0;
-}
-.app .user form .input_field input:focus,
-.app .user form .input_field input:active,
-.app .user form .input_field textarea:focus,
-.app .user form .input_field textarea:active,
-.app .page form .input_field input:focus,
-.app .page form .input_field input:active {
-  border-bottom: 1px solid #48b;
-}
 .app .user form .input_field textarea {
   resize: none;
   width: calc(100% - 32px);
@@ -123,24 +260,6 @@ body *::-webkit-scrollbar {
   line-height: 1.5;
   padding: 21px 15px 13px 15px;
   border: 1px solid #b0bec5;
-}
-.app .user form .input_field.typing label,
-.app .page form .input_field.typing label {
-  font-size: 12px;
-  top: 8px;
-  left: 0;
-}
-.app .user form .input_field.typing input,
-.app .user form .input_field.typing textarea,
-.app .page form .input_field.typing input {
-  color: #48b;
-}
-.app .user form .input_field label,
-.app .page form .input_field label {
-  position: absolute;
-  top: 25px;
-  left: 0;
-  transition: all, 150ms;
 }
 .app .user form .birth_date_form {
   position: absolute;
@@ -203,144 +322,24 @@ body *::-webkit-scrollbar {
 .app .user form .delete:hover {
   background-color: #e2e6e9;
 }
-.app .user form .input_field ul,
-.app .page form .input_field ul {
-  font-size: 16px;
-  position: relative;
-  z-index: 2;
-  padding: 0;
-  padding-left: 0;
-  list-style: none;
-  background-position-x: 221px;
-  padding-bottom: 6px;
-  color: #263238;
-}
-.app .user form .input_field ul li,
-.app .page form .input_field ul li {
-  margin-right: -1px;
-  padding-left: 14px;
-  padding-bottom: 7px;
-  padding-top: 7px;
-  border-right: 2px solid #2196f3;
-  border-left: 2px solid #2196f3;
-  background-color: white;
-}
-.app .user form .input_field ul > :nth-child(2),
-.app .page form .input_field ul > :nth-child(2) {
-  margin-top: -3px;
-  border-top: 2px solid #2196f3;
-}
-.app .user form .input_field ul li:last-child,
-.app .page form .input_field ul li:last-child {
-  border-bottom: 2px solid #2196f3;
-}
-/* =================== */
-.app .user form .select.input_field ul #post,
-.app .page form .select.input_field ul #sort {
-  border-bottom: 1px solid #b0bec5;
-  padding-bottom: 5px;
-}
-.app .user form .select.input_field ul,
-.app .page form .select.input_field ul {
-  color: #b0bec5;
-  border: none;
-}
-/* =================== */
-.app .user form .opened_select,
-.app .page form .opened_select {
-  border: none;
-}
-.app .user form .closed_select,
-.app .page form .closed_select {
-  color: #aaa;
-}
 .app .user form .select .error_color:after {
   line-height: 1;
 }
-/* ========================== */
 .app .user form .input_field ul {
   z-index: 99999;
-}
-/* ========================== */
-.app .user form .opened_li,
-.app .page form .opened_li {
-  display: block;
-  z-index: 999999;
-}
-.app .user form .opened_li:hover,
-.app .page form .opened_li:hover {
-  background-color: #eceff1;
-}
-.app .user form .opened_li:active,
-.app .page form .opened_li:active {
-  background-color: #2196f3;
-}
-.app .user form .closed_li,
-.app .page form .closed_li {
-  display: none;
-}
-/* ========================================= */
-.error_color {
-  color: #bb4444 !important;
-  border-color: #bb4444 !important;
-}
-.error_color:after {
-  content: attr(data-title);
-  width: 185px;
-  height: 25px;
-  position: absolute;
-  background: #bb4444;
-  z-index: 9999;
-  top: 15px;
-  left: 393px;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  color: #eeeeee;
-  padding-top: 9px;
-  padding-left: 11px;
-}
-.error_color:before {
-  content: '';
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  background-color: #bb4444;
-  transform: rotate(45deg);
-  left: 385px;
-  top: 25px;
-  z-index: 4;
-}
-.colored_select {
-  color: #48b;
 }
 .app .user form .opened_select:after,
 .app .user form .closed_select:after {
   top: -2px;
   right: 2px;
 }
-.app .page form .opened_select:after,
-.app .page form .closed_select:after {
-  top: 13px;
-  right: 25px;
+.app .user form .description_form.error_color:before {
+  left: 627px;
 }
-.app .user form .opened_select:after,
-.app .page form .opened_select:after,
-.app .user form .closed_select:after,
-.app .page form .closed_select:after {
-  width: 18px;
-  height: 18px;
-  content: "";
-  position: absolute;
+.app .user form .description_form.error_color:after {
+  left: 635px;  
 }
-.app .user form .opened_select:after,
-.app .page form .opened_select:after {
-  background: url("./../ets/icons/arrow_drop_up.svg") no-repeat right transparent;
-}
-.app .user form .closed_select:after,
-.app .page form .closed_select:after {
-  background: url("./../ets/icons/arrow_drop_down.svg") no-repeat right transparent;
-}
-/* ============================================ */
+/* ========================= PAGE ================================ */
 .app .page {
   width: 656px;
   background-color: #ffffff;
@@ -431,7 +430,6 @@ body *::-webkit-scrollbar {
   padding-bottom: 14px;
   padding-top: 11px;
 }
-/* ============================ */
 .app .page .list {
   margin: 12px 16px 0 16px;
 }
@@ -480,15 +478,11 @@ body *::-webkit-scrollbar {
 .app .page .list .item:last-child {
   border: none;
 }
-
-
-
-
-
-
-
-
-
+.app .page form .opened_select:after,
+.app .page form .closed_select:after {
+  top: 13px;
+  right: 25px;
+}
 
 
 

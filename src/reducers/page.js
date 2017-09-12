@@ -87,7 +87,8 @@ export default function page(state = initialState, action) {
             
             return {
                 ...state,
-                list: list_
+                list: list_,
+                dropdown_opened: false
             }
         case OPEN_SORT_DROPDOWN:
             return {
