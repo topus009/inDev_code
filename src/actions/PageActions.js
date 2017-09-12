@@ -66,6 +66,7 @@ export function preload_List () {
 
 export function preload_Roles () {
     return (dispatch) => {
+        // загрузка ролей с сервака
         preloadRoles().then(response => {
                 dispatch({
                     type: GET_ROLES_SUCCESS,

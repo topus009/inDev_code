@@ -2,8 +2,8 @@ import {
   EDIT,
   CHANGE,
   CLOSE_EDIT,
-  OPEN_ROLE_DROPDOWN,
   CHOOSE_ROLE,
+  OPEN_ROLE_DROPDOWN,
   LOAD_FILE,
   CHECK_ERRORS
 } from '../constants/User'
@@ -47,7 +47,8 @@ export default function user(state = initialState, action) {
             name: null,
             base64: null
           },
-          dropdown_opened: false
+          dropdown_opened: false,
+          selectedRole: null          
       }
     case CHANGE:
       let obj = state.selectedItem;
@@ -77,7 +78,7 @@ export default function user(state = initialState, action) {
         } else not_close_if_errors = false;
         
       }
-      
+      // если есть ошибки - форма не закроется
       if (!not_close_if_errors) {
         return {
           ...state,
