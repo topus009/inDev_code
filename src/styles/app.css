@@ -63,7 +63,9 @@ body *::-webkit-scrollbar {
   height: 16px;
   position: absolute;
   background-color: #bb4444;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
   left: 385px;
   top: 25px;
   z-index: 4;
@@ -120,6 +122,7 @@ body *::-webkit-scrollbar {
   position: absolute;
   top: 25px;
   left: 0;
+  -webkit-transition: all, 150ms;
   transition: all, 150ms;
 }
 .app .user form .input_field ul,
@@ -231,6 +234,7 @@ body *::-webkit-scrollbar {
 }
 .app .user .new_avatar {
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   position: absolute;
   width: 224px;
   height: 280px;
@@ -241,11 +245,13 @@ body *::-webkit-scrollbar {
   background-position: 50% 50%;
   background-color: rgba(128,128,128,0.7);
   background-size: 40px;
+  -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   cursor: pointer;
 }
 .app .user .new_avatar:hover {
   opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 .app .user form input[type="file"] {
   position: absolute;
@@ -386,7 +392,9 @@ body *::-webkit-scrollbar {
   background-size: 24px 24px;  
 }  
 .app .page form .sort .sort_direction.down {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 .app .page form .input_field input,
 .app .page form .input_field ul {
