@@ -9,7 +9,11 @@ const ListItem = ({ item, UserActions, PageActions, currentRole }) => {
             <div className="birth_date">{item.birth_date}</div>
             <div className="post">{currentRole}</div>
           </div>
-          <input onClick={() => UserActions.edit(item)} className="edit" type="button" value="Редактировать"/>
+          <input 
+            onClick={() => UserActions.edit(item)} 
+            className="edit" 
+            type="button" 
+            value="Редактировать"/>
         </div>
       );
   }

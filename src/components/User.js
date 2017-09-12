@@ -1,23 +1,23 @@
 import React from 'react';
-// import DayPicker from 'react-day-picker';
 
 const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
-  
+  // создание дропдауна ролей
   let li = roles.map((item, id) => {
     return <li 
             id={item.id} 
             className={user.dropdown_opened ? "opened_li" : "closed_li"} 
-            onClick={(e) => UserActions.choose_role(item.name)}
+            onClick={(e) => UserActions.choose_role(e.target.innerText)}
             key={id}>{item.name}
           </li>
   });
-
+  // перевод значения роли в текст
   let currentRole = roles.find(e => e.id === selectedItem.post).name;
 
   return (
     <div className="user">
     <div className="header">Редактирование</div>
     <form className="edit_form">
+      {/* ====================== АВАТАР ==================== */}
       <img className="avatar" src={user.new_image.base64 || selectedItem.image} alt=""/>
       <label htmlFor="file" className="new_avatar"></label>
       <input 
@@ -30,11 +30,10 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
       {/* ====================== ФАМИЛИЯ ==================== */}
       <div 
         className={"last_name_form input_field " + 
-        (selectedItem.last_name.length > 0 ? "typing" : "") + ' ' + 
-        (user.errors.last_name.length > 0 ? 'error_color' : '')
+          (selectedItem.last_name.length > 0 ? "typing" : "") + ' ' + 
+          (user.errors.last_name.length > 0 ? 'error_color' : '')
         } 
-        data-title="! Поле не заполнено"
-        >
+        data-title="! Недопустимый ввод">
         <label className="" htmlFor="last_name">Фамилия</label>
         <input  
           id="last_name"
@@ -48,11 +47,10 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
       {/* ====================== ИМЯ ========================= */}
       <div 
       className={"first_name_form input_field " + 
-      (selectedItem.first_name.length > 0 ? "typing" : "") + ' ' + 
-      (user.errors.first_name.length > 0 ? 'error_color' : '')
+        (selectedItem.first_name.length > 0 ? "typing" : "") + ' ' + 
+        (user.errors.first_name.length > 0 ? 'error_color' : '')
       } 
-      data-title="! Поле не заполнено"
-      >
+      data-title="! Недопустимый ввод">
         <label className="" htmlFor="first_name">Имя</label>
         <input 
           id="first_name"
@@ -66,11 +64,10 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
       {/* ====================== ДЕНЬ РОЖДЕНИЯ =================== */}
       <div 
       className={"birth_date_form input_field " + 
-      (selectedItem.birth_date.length > 0 ? "typing" : "") + ' ' + 
-      (user.errors.birth_date.length > 0 ? 'error_color' : '')
+        (selectedItem.birth_date.length > 0 ? "typing" : "") + ' ' + 
+        (user.errors.birth_date.length > 0 ? 'error_color' : '')
       } 
-      data-title="! Поле не заполнено"
-      >
+      data-title="! Недопустимый ввод">
         <label className="" htmlFor="birth_date">Дата рождения</label>
         <input  
           id="birth_date"
@@ -83,7 +80,7 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
       </div>
       {/* ====================== РОЛЬ =========================== */}
       <div className="select input_field">
-        <ul className={user.dropdown_opened ? "opened_select" : "closed_select"} data-title="! Поле не заполнено">
+        <ul className={user.dropdown_opened ? "opened_select" : "closed_select"}>
           <div 
             id="post"
             onClick={() => UserActions.open_dropdown()}>
@@ -95,11 +92,10 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
       {/* ====================== О СЕБЕ ========================= */}
       <div 
       className={"description_form input_field " + 
-      (selectedItem.description.length > 0 ? "typing" : "") + ' ' + 
-      (user.errors.description.length > 0 ? 'error_color' : '')
+        (selectedItem.description.length > 0 ? "typing" : "") + ' ' + 
+        (user.errors.description.length > 0 ? 'error_color' : '')
       } 
-      data-title="! Поле не заполнено"
-      >
+      data-title="! Недопустимый ввод">
         <label className="" htmlFor="description">Характеристика</label>
         <textarea 
           id="description"
@@ -109,7 +105,7 @@ const User = ({ user, roles, UserActions, PageActions, selectedItem }) => {
           value={selectedItem.description}>
         </textarea>
       </div>
-
+      {/* ====================== СОХРАНИТЬ / УДАЛИТЬ ========================= */}
       <input 
         className="save" 
         onClick={() => {

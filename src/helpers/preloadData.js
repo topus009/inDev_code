@@ -1,12 +1,11 @@
-
-
 export function preloadList() {
-  // let data = 'http://avengers.view.indev-group.eu/test_api/staff/';
+  // запрос списка персонажей
   let url = 'http://avengers.view.indev-group.eu/test_api/staff/?query=';
   return request(url);
 }
 
 export function preloadRoles() {
+  // запрос списка ролей
   let url = 'http://avengers.view.indev-group.eu/test_api/posts/';
   return request(url);
 }

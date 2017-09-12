@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // ФИКС СКРОЛЛА    
+    // ФИКС СКРОЛЛА - чтобы если длинна списка меняется и пропадает скролл, не происходило изменение положения App по горизонтали
     let scroll_width = document.body.clientWidth - this.state.body_width;
     if (scroll_width > 0) {
       this.setState({body_width: scroll_width})
@@ -30,6 +30,7 @@ class App extends Component {
 
   render() {
     const { user, page, UserActions, PageActions } = this.props;
+
     let list = this.props.page.filtered_list.length > 0 ? this.props.page.filtered_list : this.props.page.list;
     let roles = this.props.page.roles;
     let selectedItem = this.props.user.selectedItem;
@@ -37,6 +38,7 @@ class App extends Component {
     let pageComponent,
         userComponent;
 
+    // Если персонаж не выбран, верхнее окно редактирование будет скрыто
     if (selectedItem !== null && selectedItem !== undefined && roles !== null && roles !== undefined) {
       userComponent = <User 
                         user={user} 
@@ -46,7 +48,7 @@ class App extends Component {
                         selectedItem={selectedItem}
                       />
     }
-
+    
     if (list !== null && list !== undefined && roles !== null && roles !== undefined) {
       pageComponent = <Page 
                         page={page} 

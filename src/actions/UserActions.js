@@ -1,21 +1,12 @@
 import {
-    EDIT, 
     CHANGE,
-    CLOSE_EDIT,
-    OPEN_ROLE_DROPDOWN,
+    CHECK_ERRORS,
     CHOOSE_ROLE,
+    CLOSE_EDIT,
+    EDIT, 
     LOAD_FILE,
-    CHECK_ERRORS
+    OPEN_ROLE_DROPDOWN
 } from '../constants/User'
-
-export function edit (item) {
-    return (dispatch) => {
-        dispatch({
-            type: EDIT,
-            payload: item
-        });
-    }
-}
 
 export function change (key, value) {
     return (dispatch) => {
@@ -26,18 +17,11 @@ export function change (key, value) {
     }
 }
 
-export function close_edit () {
+export function check_errors (item) {
     return (dispatch) => {
         dispatch({
-            type: CLOSE_EDIT
-        });
-    }
-}
-
-export function open_dropdown () {
-    return (dispatch) => {
-        dispatch({
-            type: OPEN_ROLE_DROPDOWN
+            type: CHECK_ERRORS, 
+            payload: item
         });
     }
 }
@@ -51,6 +35,23 @@ export function choose_role (role) {
     }
 }
 
+export function close_edit () {
+    return (dispatch) => {
+        dispatch({
+            type: CLOSE_EDIT
+        });
+    }
+}
+
+export function edit (item) {
+    return (dispatch) => {
+        dispatch({
+            type: EDIT,
+            payload: item
+        });
+    }
+}
+
 export function load_file (id, file) {
     return (dispatch) => {
         dispatch({
@@ -60,11 +61,10 @@ export function load_file (id, file) {
     }
 }
 
-export function check_errors (item) {
+export function open_dropdown () {
     return (dispatch) => {
         dispatch({
-            type: CHECK_ERRORS, 
-            payload: item
+            type: OPEN_ROLE_DROPDOWN
         });
     }
 }

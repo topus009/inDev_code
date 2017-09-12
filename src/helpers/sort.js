@@ -1,4 +1,3 @@
-
 export function sort(sortBy, list) {
   switch (sortBy) {
 
@@ -24,6 +23,8 @@ export function sort(sortBy, list) {
         let y = b.post;
         return x < y ? -1 : x > y ? 1 : 0;
       });
+    break;
+  default:
     break;
   }
 

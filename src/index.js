@@ -16,4 +16,5 @@ render(
         </div>
     </Provider>, 
     document.getElementById('root'));
+    
 registerServiceWorker();

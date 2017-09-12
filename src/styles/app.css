@@ -2,16 +2,12 @@
   font-family: Gotham_Pro;
   src: url("./../ets/fonts/Gotham_Pro.ttf");
 }
-/* html {
-  overflow-y: scroll;
-} */
 body {
   margin: 0;
   padding: 0;
   font-family: Gotham_Pro;
   background-color: darkgrey;
   overflow-x: hidden;
-  overflow-y: 
 }
 body *::-webkit-scrollbar {
   width: 22px;
@@ -59,9 +55,6 @@ body *::-webkit-scrollbar {
   color: #b0bec5;
   border-bottom: 1px solid #cfd8dc;
 }
-/* ======================== */
-/* ======== IMAGE ========= */
-/* ======================== */
 .app .user .avatar {
   width: 224px;
   height: 280px;
@@ -89,10 +82,6 @@ body *::-webkit-scrollbar {
   position: absolute;
   visibility: hidden;
 }
-
-/* ======================== */
-/* ======== IMAGE-end ===== */
-/* ======================== */
 .app .user form,
 .app .page form {
   background-color: white;
@@ -251,9 +240,6 @@ body *::-webkit-scrollbar {
   border-bottom: 1px solid #b0bec5;
   padding-bottom: 5px;
 }
-/* .app .user form .select.input_field ul .opened_li:nth-of-type(1) {
-  margin-top: -1px;
-} */
 .app .user form .select.input_field ul,
 .app .page form .select.input_field ul {
   color: #b0bec5;
@@ -263,19 +249,23 @@ body *::-webkit-scrollbar {
 .app .user form .opened_select,
 .app .page form .opened_select {
   border: none;
-  /* background: url("./../ets/icons/arrow_drop_up.svg") no-repeat right transparent; */
 }
 .app .user form .closed_select,
 .app .page form .closed_select {
   color: #aaa;
-  /* background: url("./../ets/icons/arrow_drop_down.svg") no-repeat right transparent; */
 }
 .app .user form .select .error_color:after {
   line-height: 1;
 }
+/* ========================== */
+.app .user form .input_field ul {
+  z-index: 99999;
+}
+/* ========================== */
 .app .user form .opened_li,
 .app .page form .opened_li {
   display: block;
+  z-index: 999999;
 }
 .app .user form .opened_li:hover,
 .app .page form .opened_li:hover {
@@ -296,13 +286,13 @@ body *::-webkit-scrollbar {
 }
 .error_color:after {
   content: attr(data-title);
-  width: 155px;
+  width: 185px;
   height: 25px;
   position: absolute;
   background: #bb4444;
-  z-index: 999999;
-  top: 60px;
-  left: 56px;
+  z-index: 9999;
+  top: 15px;
+  left: 393px;
   border: 1px solid transparent;
   border-radius: 3px;
   color: #eeeeee;
@@ -316,8 +306,8 @@ body *::-webkit-scrollbar {
   position: absolute;
   background-color: #bb4444;
   transform: rotate(45deg);
-  left: 132px;
-  top: 53px;
+  left: 385px;
+  top: 25px;
   z-index: 4;
 }
 .colored_select {
@@ -351,10 +341,6 @@ body *::-webkit-scrollbar {
   background: url("./../ets/icons/arrow_drop_down.svg") no-repeat right transparent;
 }
 /* ============================================ */
-/* ============================================ */
-/* ============================================ */
-/* ============================================ */
-
 .app .page {
   width: 656px;
   background-color: #ffffff;
@@ -445,8 +431,6 @@ body *::-webkit-scrollbar {
   padding-bottom: 14px;
   padding-top: 11px;
 }
-/* ============================ */
-/* ============================ */
 /* ============================ */
 .app .page .list {
   margin: 12px 16px 0 16px;
